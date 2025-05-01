@@ -33,36 +33,36 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <Link to="/" className="text-white font-bold text-xl hover:text-purple transition-colors font-futuristic tracking-wider">
+            <Link to="/" className="text-white font-bold text-xl hover:text-purple transition-colors">
               <span className="text-purple">Ritika</span> Budhiraja
             </Link>
           </div>
           
           <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-6 lg:space-x-8">
-              <button onClick={() => scrollToSection('about')} className="text-white hover:text-purple transition-colors px-3 py-2 tracking-wider">About</button>
-              <button onClick={() => scrollToSection('projects')} className="text-white hover:text-purple transition-colors px-3 py-2 tracking-wider">Projects</button>
-              <button onClick={() => scrollToSection('research')} className="text-white hover:text-purple transition-colors px-3 py-2 tracking-wider">Research</button>
-              <button onClick={() => scrollToSection('experience')} className="text-white hover:text-purple transition-colors px-3 py-2 tracking-wider">Experience</button>
-              <button onClick={() => scrollToSection('achievements')} className="text-white hover:text-purple transition-colors px-3 py-2 tracking-wider">Achievements</button>
-              <button onClick={() => scrollToSection('certifications')} className="text-white hover:text-purple transition-colors px-3 py-2 tracking-wider">Certifications</button>
-              <button onClick={() => scrollToSection('contact')} className="text-white hover:text-purple transition-colors px-3 py-2 tracking-wider">Contact</button>
+            <div className="ml-10 flex items-center space-x-4">
+              <button onClick={() => scrollToSection('about')} className="text-white hover:text-purple transition-colors px-3 py-2">About</button>
+              <button onClick={() => scrollToSection('projects')} className="text-white hover:text-purple transition-colors px-3 py-2">Projects</button>
+              <button onClick={() => scrollToSection('research')} className="text-white hover:text-purple transition-colors px-3 py-2">Research</button>
+              <button onClick={() => scrollToSection('experience')} className="text-white hover:text-purple transition-colors px-3 py-2">Experience</button>
+              <button onClick={() => scrollToSection('achievements')} className="text-white hover:text-purple transition-colors px-3 py-2">Achievements</button>
+              <button onClick={() => scrollToSection('certifications')} className="text-white hover:text-purple transition-colors px-3 py-2">Certifications</button>
+              <button onClick={() => scrollToSection('contact')} className="text-white hover:text-purple transition-colors px-3 py-2">Contact</button>
             </div>
           </div>
           
-          <div className="hidden md:flex items-center space-x-6">
-            <a href="https://github.com/Ritika-Budhiraja" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110">
+          <div className="hidden md:flex items-center space-x-4">
+            <a href="https://github.com/Ritika-Budhiraja" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple">
               <Github className="h-5 w-5" />
             </a>
-            <a href="https://www.linkedin.com/in/ritika-budhiraja-/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110">
+            <a href="https://www.linkedin.com/in/ritika-budhiraja-/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple">
               <Linkedin className="h-5 w-5" />
             </a>
-            <a href="mailto:ritikabudhiraja28@gmail.com" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110">
+            <a href="mailto:ritikabudhiraja28@gmail.com" className="text-white hover:text-purple">
               <Mail className="h-5 w-5" />
             </a>
-            <a href="#resume" className="flex items-center gap-2 bg-purple hover:bg-purple-medium text-white px-4 py-2 rounded-lg transition-all group">
-              <Download className="h-4 w-4 group-hover:animate-pulse" />
-              <span className="tracking-wide">Resume</span>
+            <a href="#resume" className="flex items-center gap-2 bg-purple hover:bg-purple-medium text-white px-4 py-2 rounded-lg transition-all">
+              <Download className="h-4 w-4" />
+              Resume
             </a>
           </div>
           
@@ -70,7 +70,6 @@ const Navbar = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-purple focus:outline-none"
-              aria-expanded="false"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -82,27 +81,27 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden glass-card m-4 rounded-xl animate-fly-in">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            <button onClick={() => scrollToSection('about')} className="block text-white hover:text-purple px-3 py-2 w-full text-left tracking-wider">About</button>
-            <button onClick={() => scrollToSection('projects')} className="block text-white hover:text-purple px-3 py-2 w-full text-left tracking-wider">Projects</button>
-            <button onClick={() => scrollToSection('research')} className="block text-white hover:text-purple px-3 py-2 w-full text-left tracking-wider">Research</button>
-            <button onClick={() => scrollToSection('experience')} className="block text-white hover:text-purple px-3 py-2 w-full text-left tracking-wider">Experience</button>
-            <button onClick={() => scrollToSection('achievements')} className="block text-white hover:text-purple px-3 py-2 w-full text-left tracking-wider">Achievements</button>
-            <button onClick={() => scrollToSection('certifications')} className="block text-white hover:text-purple px-3 py-2 w-full text-left tracking-wider">Certifications</button>
-            <button onClick={() => scrollToSection('contact')} className="block text-white hover:text-purple px-3 py-2 w-full text-left tracking-wider">Contact</button>
+            <button onClick={() => scrollToSection('about')} className="block text-white hover:text-purple px-3 py-2 w-full text-left">About</button>
+            <button onClick={() => scrollToSection('projects')} className="block text-white hover:text-purple px-3 py-2 w-full text-left">Projects</button>
+            <button onClick={() => scrollToSection('research')} className="block text-white hover:text-purple px-3 py-2 w-full text-left">Research</button>
+            <button onClick={() => scrollToSection('experience')} className="block text-white hover:text-purple px-3 py-2 w-full text-left">Experience</button>
+            <button onClick={() => scrollToSection('achievements')} className="block text-white hover:text-purple px-3 py-2 w-full text-left">Achievements</button>
+            <button onClick={() => scrollToSection('certifications')} className="block text-white hover:text-purple px-3 py-2 w-full text-left">Certifications</button>
+            <button onClick={() => scrollToSection('contact')} className="block text-white hover:text-purple px-3 py-2 w-full text-left">Contact</button>
             
-            <div className="flex items-center space-x-6 px-3 py-2">
-              <a href="https://github.com/Ritika-Budhiraja" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110">
+            <div className="flex items-center space-x-4 px-3 py-2">
+              <a href="https://github.com/Ritika-Budhiraja" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple">
                 <Github className="h-5 w-5" />
               </a>
-              <a href="https://www.linkedin.com/in/ritika-budhiraja-/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110">
+              <a href="https://www.linkedin.com/in/ritika-budhiraja-/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="mailto:ritikabudhiraja28@gmail.com" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110">
+              <a href="mailto:ritikabudhiraja28@gmail.com" className="text-white hover:text-purple">
                 <Mail className="h-5 w-5" />
               </a>
               <a href="#resume" className="flex items-center gap-2 bg-purple hover:bg-purple-medium text-white px-4 py-2 rounded-lg transition-all">
                 <Download className="h-4 w-4" />
-                <span className="tracking-wide">Resume</span>
+                Resume
               </a>
             </div>
           </div>

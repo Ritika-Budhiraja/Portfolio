@@ -22,7 +22,7 @@ const ProjectsSection = () => {
       title: "Twitter Sentiment Analysis",
       description: "Analyzed sentiments of tweets using multiple models and selected the best one based on model accuracy. Determined that the LSTM model provided the most accurate and reliable sentiment analysis according to individual mood analysis.",
       techStack: ["Pandas", "NumPy", "NLTK", "SpaCy", "PyTorch", "Scikit-learn", "Matplotlib", "Seaborn"],
-      image: "https://images.unsplash.com/photo-1611262588024-d12430b98920?fit=crop&w=800&h=500",
+      image: "https://images.unsplash.com/photo-1600096194534-95cf5ece04cf?fit=crop&w=800&h=500",
       githubUrl: "https://github.com/Ritika-Budhiraja/sentiment-analysis"
     },
     {
@@ -54,7 +54,7 @@ const ProjectsSection = () => {
       title: "EcoAlert",
       description: "Designed and implemented a smart gas leak detection system with sensors (MQ series gas sensors), motors (servo motors for window automation), and rechargeable batteries for uninterrupted operation. Ensured real-time monitoring, triggering alarms upon detection, and sending notifications via IoT protocols for swift response and enhanced safety measures.",
       techStack: ["Python", "Arduino", "MQ-Sensor"],
-      image: "https://images.unsplash.com/photo-1562813733-b31f0a4dadff?fit=crop&w=800&h=500",
+      image: "https://images.unsplash.com/photo-1581092787765-e3feb951d987?fit=crop&w=800&h=500",
       githubUrl: "https://github.com/Ritika-Budhiraja/eco-alert"
     },
     {
@@ -122,34 +122,8 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Tech background animation */}
-      <div className="absolute inset-0 z-0 opacity-10">
-        <div className="absolute top-0 left-0 w-full h-full grid-background"></div>
-        <div className="absolute top-1/4 left-1/3 w-40 h-40 rounded-full bg-purple/20 blur-lg animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/3 w-60 h-60 rounded-full bg-purple-medium/20 blur-xl animate-pulse-glow"></div>
-        
-        {/* Digital particles */}
-        {Array.from({ length: 15 }).map((_, i) => (
-          <div 
-            key={i}
-            className="absolute w-1 h-1 bg-purple rounded-full shadow-[0_0_5px_#9b87f5]"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animation: `float ${3 + Math.random() * 7}s ease-in-out infinite`
-            }}
-          ></div>
-        ))}
-        
-        {/* Tech lines */}
-        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-purple/20 to-transparent"></div>
-        <div className="absolute top-0 left-2/4 w-px h-full bg-gradient-to-b from-transparent via-purple/20 to-transparent"></div>
-        <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-purple/20 to-transparent"></div>
-      </div>
-      
-      <div className="max-w-7xl mx-auto relative z-10">
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto">
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -157,7 +131,7 @@ const ProjectsSection = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="text-center mb-16"
         >
-          <motion.h2 variants={itemVariants} className="text-4xl font-bold text-white mb-4 font-futuristic tracking-wider">
+          <motion.h2 variants={itemVariants} className="text-4xl font-bold text-white mb-4">
             My <span className="text-purple">Projects</span>
           </motion.h2>
           <motion.div variants={itemVariants} className="h-1 w-20 bg-purple mx-auto mb-8"></motion.div>
@@ -186,42 +160,14 @@ const ProjectsSection = () => {
             >
               <div className="relative h-48 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-space-dark to-transparent z-10"></div>
-                <motion.img 
+                <img 
                   src={project.image} 
                   alt={project.title} 
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                  initial={{ scale: 1 }}
-                  whileHover={{ scale: 1.05 }}
                 />
-                
-                {/* Project-specific overlay effect */}
-                {project.id === 1 && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-5"></div>
-                )}
-                {project.id === 2 && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-5"></div>
-                )}
-                {project.id === 3 && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-red-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-5"></div>
-                )}
-                {project.id === 4 && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-purple/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-5"></div>
-                )}
-                {project.id === 5 && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-5"></div>
-                )}
-                {project.id === 6 && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-5"></div>
-                )}
-                {project.id === 7 && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-teal-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-5"></div>
-                )}
-                {project.id === 8 && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-5"></div>
-                )}
               </div>
               <div className="p-6 relative z-20">
-                <h3 className="text-xl font-bold text-white mb-2 font-futuristic tracking-wide">{project.title}</h3>
+                <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
                 <p className="text-gray-300 text-sm mb-4 line-clamp-2">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.techStack.slice(0, 3).map((tech, index) => (
@@ -277,7 +223,7 @@ const ProjectsSection = () => {
             </div>
             
             <div className="p-8">
-              <h3 className="text-2xl font-bold text-white mb-4 font-futuristic tracking-wide">{selectedProject.title}</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">{selectedProject.title}</h3>
               <p className="text-gray-300 mb-6">{selectedProject.description}</p>
               
               <div className="mb-6">
