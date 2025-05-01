@@ -54,7 +54,7 @@ const ProjectsSection = () => {
       title: "EcoAlert",
       description: "Designed and implemented a smart gas leak detection system with sensors (MQ series gas sensors), motors (servo motors for window automation), and rechargeable batteries for uninterrupted operation. Ensured real-time monitoring, triggering alarms upon detection, and sending notifications via IoT protocols for swift response and enhanced safety measures.",
       techStack: ["Python", "Arduino", "MQ-Sensor"],
-      image: "https://images.unsplash.com/photo-1626285861696-9f0bf5a49c6d?fit=crop&w=800&h=500",
+      image: "https://images.unsplash.com/photo-1581092787765-e3feb951d987?fit=crop&w=800&h=500",
       githubUrl: "https://github.com/Ritika-Budhiraja/eco-alert"
     },
     {
