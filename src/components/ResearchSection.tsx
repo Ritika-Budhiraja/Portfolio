@@ -29,13 +29,13 @@ const ResearchSection = () => {
       title: "Real-Time Network Topology Optimization Using Dynamic Machine Learning Adaptation",
       description: "Research Proposes a Network Topology Optimization Framework powered by reinforcement learning to autonomously adapt network configurations based on evolving traffic patterns. It improves key metrics like latency, throughput, and energy efficiency, offering a scalable solution for real-time management in IoT, 5G, and cyber-physical systems.",
       technologies: ["Reinforcement Learning", "Network Optimization", "IoT", "Cyber-physical Systems"],
-      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?fit=crop&w=800&h=500"
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?fit=crop&w=800&h=500"
     },
     {
       title: "Cross Lingual and Multi Lingual NLP",
       description: "This research aims to understand how multilingual BERT (mBERT) learns crosslingual representations across high and low resource languages, analyzing its performance on various NLP Tasks using data of 104 languages.",
       technologies: ["mBERT", "Multilingual NLP", "Cross-lingual Language Models", "Transfer Learning"],
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?fit=crop&w=800&h=500"
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?fit=crop&w=800&h=500"
     }
   ];
 
@@ -49,7 +49,7 @@ const ResearchSection = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="text-center mb-16"
         >
-          <motion.h2 variants={itemVariants} className="text-4xl font-bold text-white mb-4">
+          <motion.h2 variants={itemVariants} className="text-4xl font-bold text-white mb-4 font-futuristic">
             Research <span className="text-purple">Work</span>
           </motion.h2>
           <motion.div variants={itemVariants} className="h-1 w-20 bg-purple mx-auto mb-8"></motion.div>
@@ -82,7 +82,7 @@ const ResearchSection = () => {
               
               <div className="absolute inset-0 flex flex-col justify-end p-8 z-20">
                 <div className="transform transition-transform duration-300 group-hover:-translate-y-4">
-                  <h3 className="text-2xl font-bold text-white mb-4">{project.title}</h3>
+                  <h3 className="text-2xl font-bold text-white mb-4 font-futuristic">{project.title}</h3>
                   <p className="text-gray-300 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">{project.description}</p>
                   
                   <div className="flex flex-wrap gap-2">

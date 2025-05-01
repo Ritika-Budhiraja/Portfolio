@@ -143,14 +143,17 @@ const HeroSection = () => {
                 variants={letterVariants}
                 initial="hidden"
                 animate="visible"
-                className={`inline-block text-5xl sm:text-7xl font-bold ${letter !== " " ? "text-purple" : ""}`}
+                className={`inline-block text-5xl sm:text-7xl font-bold font-futuristic ${letter !== " " ? "text-purple" : ""} tracking-wider`}
+                style={{
+                  textShadow: letter !== " " ? '0 0 10px rgba(155, 135, 245, 0.7), 0 0 20px rgba(155, 135, 245, 0.5)' : 'none'
+                }}
               >
                 {letter === " " ? "\u00A0" : letter}
               </motion.span>
             ))}
           </div>
           
-          <motion.h2 variants={itemVariants} className="text-2xl sm:text-3xl text-white mb-6">
+          <motion.h2 variants={itemVariants} className="text-2xl sm:text-3xl text-white mb-6 font-futuristic tracking-wide">
             Data Scientist & Computer Science Engineer
           </motion.h2>
           

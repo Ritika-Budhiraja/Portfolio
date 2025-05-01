@@ -22,7 +22,7 @@ const ProjectsSection = () => {
       title: "Twitter Sentiment Analysis",
       description: "Analyzed sentiments of tweets using multiple models and selected the best one based on model accuracy. Determined that the LSTM model provided the most accurate and reliable sentiment analysis according to individual mood analysis.",
       techStack: ["Pandas", "NumPy", "NLTK", "SpaCy", "PyTorch", "Scikit-learn", "Matplotlib", "Seaborn"],
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?fit=crop&w=800&h=500",
+      image: "https://images.unsplash.com/photo-1600096194534-95cf5ece04cf?fit=crop&w=800&h=500",
       githubUrl: "https://github.com/Ritika-Budhiraja/sentiment-analysis"
     },
     {
@@ -30,7 +30,7 @@ const ProjectsSection = () => {
       title: "Blog Generator Web App",
       description: "This application uses the LLama 2 language model to generate personalized blog content based on user inputs like topic, word count, and audience type (e.g., Researchers or Common People). Built with Streamlit for an intuitive interface and Python for backend processing.",
       techStack: ["Streamlit", "Python", "LLama 2 Language Model"],
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?fit=crop&w=800&h=500",
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?fit=crop&w=800&h=500",
       githubUrl: "https://github.com/Ritika-Budhiraja/blog-generator"
     },
     {
@@ -38,7 +38,7 @@ const ProjectsSection = () => {
       title: "Fine-Tuned Chatbot",
       description: "Explored four methods for creating a chatbot. The Generative Model uses an encoder-decoder architecture with attention mechanisms to generate dynamic responses. The Supervised Learning Model employs labeled datasets to train classifiers like RandomForest for response prediction. The Unsupervised Learning Model uses TF-IDF to generate responses without labeled data. Lastly, OpenAI Models (like Ada, Babbage, Curie, and Davinci) offer pre-trained language models that can be fine-tuned for high-quality conversational capabilities.",
       techStack: ["Python", "NumPy", "Keras", "Pandas", "NLTK"],
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?fit=crop&w=800&h=500",
+      image: "https://images.unsplash.com/photo-1531747118685-ca8fa6e08806?fit=crop&w=800&h=500",
       githubUrl: "https://github.com/Ritika-Budhiraja/chatbot-tutorial"
     },
     {
@@ -46,7 +46,7 @@ const ProjectsSection = () => {
       title: "Image Caption Generator",
       description: "The Image Caption Generator integrates computer vision and natural language processing to produce meaningful captions for images, utilizing the FLICKR_8K dataset. The process involves cleaning captions, extracting image features via VGG-16, and training an LSTM model to generate captions, evaluated with BLEU scores. Applications span aiding visually impaired individuals, automating captions in advertising, and assisting in medical and geospatial image analysis.",
       techStack: ["Tensorflow", "Pandas", "Matplotlib", "Seaborn", "NLTK"],
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?fit=crop&w=800&h=500",
+      image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?fit=crop&w=800&h=500",
       githubUrl: "https://github.com/Ritika-Budhiraja/image-caption-generator"
     },
     {
@@ -54,7 +54,7 @@ const ProjectsSection = () => {
       title: "EcoAlert",
       description: "Designed and implemented a smart gas leak detection system with sensors (MQ series gas sensors), motors (servo motors for window automation), and rechargeable batteries for uninterrupted operation. Ensured real-time monitoring, triggering alarms upon detection, and sending notifications via IoT protocols for swift response and enhanced safety measures.",
       techStack: ["Python", "Arduino", "MQ-Sensor"],
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?fit=crop&w=800&h=500",
+      image: "https://images.unsplash.com/photo-1626285861696-9f0bf5a49c6d?fit=crop&w=800&h=500",
       githubUrl: "https://github.com/Ritika-Budhiraja/eco-alert"
     },
     {
@@ -62,7 +62,7 @@ const ProjectsSection = () => {
       title: "BTC Price Prediction Model",
       description: "The BTC Price Prediction ML Project forecasts Bitcoin prices using historical data from CoinMarketCap, leveraging advanced statistical and machine learning models like GARCH and SARIMAX for high accuracy. The project includes seasonal decomposition, autocorrelation analysis, and hyperparameter tuning to optimize predictive performance. Results and insights are documented in a comprehensive research paper.",
       techStack: ["Python", "Tensorflow", "Colab", "Keras", "NumPy", "Pandas", "Scikit-Learn", "CoinMarketCap API"],
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?fit=crop&w=800&h=500",
+      image: "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?fit=crop&w=800&h=500",
       githubUrl: "https://github.com/Ritika-Budhiraja/btc-prediction"
     },
     {
@@ -70,7 +70,7 @@ const ProjectsSection = () => {
       title: "Crop Forecasting Prediction",
       description: "The Crop Yield Forecasting Using Machine Learning project utilizes KNIME and Python workflows to predict crop yields using historical weather, soil, and yield data. It integrates feature engineering, predictive modeling, and interpretative visualizations to support agricultural decision-making. The project delivers actionable insights via dashboards and REST APIs for real-time applications.",
       techStack: ["KNIME", "Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn"],
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?fit=crop&w=800&h=500",
+      image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?fit=crop&w=800&h=500",
       githubUrl: "https://github.com/Ritika-Budhiraja/crop-forecasting"
     },
     {
@@ -78,7 +78,7 @@ const ProjectsSection = () => {
       title: "QRCode Generator",
       description: "The QR Code Generator is a Python-based tool that creates customizable QR codes for text, URLs, and other data formats. It supports options like size, color, and error correction levels, making it ideal for various applications like business cards, marketing materials, and Wi-Fi access sharing.",
       techStack: ["Python", "Jupyter/Colab", "VS CODE"],
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?fit=crop&w=800&h=500",
+      image: "https://images.unsplash.com/photo-1555421689-491a97ff2040?fit=crop&w=800&h=500",
       githubUrl: "https://github.com/Ritika-Budhiraja/qrcode-generator"
     }
   ];

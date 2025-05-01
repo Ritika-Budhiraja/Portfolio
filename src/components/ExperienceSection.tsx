@@ -31,21 +31,21 @@ const ExperienceSection = () => {
       position: "Research Consultant",
       description: "Engaged deeply with WorldQuant Brain, leveraging advanced finance and quantitative analysis concepts to drive research and generate data-driven insights for innovative trading models.",
       period: "September 2024",
-      imageSrc: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?fit=crop&w=800&h=500" 
+      imageSrc: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?fit=crop&w=800&h=500" 
     },
     {
       company: "ISI Kolkata",
       position: "Data Science Intern",
       description: "Developed a codeless machine learning application using KNIME software, focusing on crop forecasting across various districts in different Indian states.",
       period: "July 2024 - October 2024",
-      imageSrc: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?fit=crop&w=800&h=500"
+      imageSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?fit=crop&w=800&h=500"
     },
     {
       company: "IISER Bhopal",
       position: "Research Intern",
       description: "Conducted a literature review of over 10+ research papers on the application of deep learning in medical AI for cancer detection. Utilized data analysis and visualization tools, such as Pandas, NumPy, and Matplotlib, for comprehensive analysis and processing of medical cancer detection datasets.",
       period: "May 2024 - July 2024",
-      imageSrc: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?fit=crop&w=800&h=500"
+      imageSrc: "https://images.unsplash.com/photo-1579154204601-01588f351e67?fit=crop&w=800&h=500"
     }
   ];
 
@@ -59,7 +59,7 @@ const ExperienceSection = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="text-center mb-16"
         >
-          <motion.h2 variants={itemVariants} className="text-4xl font-bold text-white mb-4">
+          <motion.h2 variants={itemVariants} className="text-4xl font-bold text-white mb-4 font-futuristic">
             Work <span className="text-purple">Experience</span>
           </motion.h2>
           <motion.div variants={itemVariants} className="h-1 w-20 bg-purple mx-auto mb-8"></motion.div>
