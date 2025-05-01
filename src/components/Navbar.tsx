@@ -50,7 +50,7 @@ const Navbar = () => {
             </div>
           </div>
           
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-6">
             <a href="https://github.com/Ritika-Budhiraja" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110">
               <Github className="h-5 w-5" />
             </a>
@@ -90,7 +90,7 @@ const Navbar = () => {
             <button onClick={() => scrollToSection('certifications')} className="block text-white hover:text-purple px-3 py-2 w-full text-left tracking-wider">Certifications</button>
             <button onClick={() => scrollToSection('contact')} className="block text-white hover:text-purple px-3 py-2 w-full text-left tracking-wider">Contact</button>
             
-            <div className="flex items-center space-x-4 px-3 py-2">
+            <div className="flex items-center space-x-6 px-3 py-2">
               <a href="https://github.com/Ritika-Budhiraja" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110">
                 <Github className="h-5 w-5" />
               </a>
