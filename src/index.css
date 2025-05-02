@@ -145,7 +145,7 @@
   }
   
   .btn-gradient {
-    @apply bg-gradient-to-r from-purple to-purple-deep text-white font-medium py-2 px-6 rounded-lg transition-all duration-300 hover:shadow-neon-purple;
+    @apply bg-gradient-to-r from-purple to-purple-deeper text-white font-medium py-2 px-6 rounded-lg transition-all duration-300 hover:shadow-neon-purple;
   }
   
   .card-3d {
