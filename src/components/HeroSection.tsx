@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
@@ -109,21 +108,6 @@ const HeroSection = () => {
     }
   };
 
-  const letterVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: (i: number) => ({
-      y: 0,
-      opacity: 1,
-      transition: {
-        delay: i * 0.07,
-        duration: 0.5
-      }
-    })
-  };
-
-  const name = "Ritika Budhiraja";
-  const nameArray = name.split("");
-
   return (
     <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
       <canvas ref={canvasRef} className="absolute inset-0 z-0"></canvas>
@@ -135,31 +119,30 @@ const HeroSection = () => {
           animate="visible"
           className="mb-8"
         >
-          <div className="flex justify-center mb-6">
-            {nameArray.map((letter, i) => (
-              <motion.span
-                key={i}
-                custom={i}
-                variants={letterVariants}
-                initial="hidden"
-                animate="visible"
-                className={`inline-block text-5xl sm:text-7xl font-bold font-futuristic ${letter !== " " ? "text-purple" : ""} tracking-wider`}
-                style={{
-                  textShadow: letter !== " " ? '0 0 10px rgba(155, 135, 245, 0.7), 0 0 20px rgba(155, 135, 245, 0.5)' : 'none'
-                }}
-              >
-                {letter === " " ? "\u00A0" : letter}
-              </motion.span>
-            ))}
+          <div className="flex flex-wrap justify-center mb-6">
+            {/* First name in purple */}
+            <motion.h1
+              variants={itemVariants}
+              className="text-5xl sm:text-7xl font-bold font-futuristic text-purple tracking-wider mr-4"
+            >
+              Ritika
+            </motion.h1>
+            
+            {/* Last name in pink */}
+            <motion.h1
+              variants={itemVariants}
+              className="text-5xl sm:text-7xl font-bold font-futuristic text-pink-500 tracking-wider"
+            >
+              Budhiraja
+            </motion.h1>
           </div>
           
-          <motion.h2 variants={itemVariants} className="text-2xl sm:text-3xl text-white mb-6 font-futuristic tracking-wide">
-            Data Scientist & Computer Science Engineer
+          <motion.h2 variants={itemVariants} className="text-xl sm:text-2xl text-white mb-6 font-futuristic tracking-wide">
+            AI & Data Science Researcher
           </motion.h2>
           
           <motion.p variants={itemVariants} className="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
-            Double degree student from IIT Madras (BSc Data Science, 2027) and GGSIPU (B.Tech CSE, 2026), 
-            specializing in AI, ML, and Data Science with extensive research experience.
+            Specializing in Deep Learning, Machine Learning, and Data Analysis with a strong foundation in computational methods and research-driven innovation.
           </motion.p>
           
           <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4">

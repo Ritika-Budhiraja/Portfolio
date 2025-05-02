@@ -1,10 +1,12 @@
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 import { X } from 'lucide-react';
 
 const ResearchSection = () => {
   const [selectedResearch, setSelectedResearch] = useState(null);
+  const sliderRef = useRef(null);
+  const controls = useAnimation();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -39,14 +41,37 @@ const ResearchSection = () => {
     }
   };
 
+  const slideVariants = {
+    enter: (direction) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5
+      }
+    },
+    exit: (direction) => ({
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0,
+      transition: {
+        duration: 0.5
+      }
+    })
+  };
+
   const researchProjects = [
     {
       id: 1,
-      title: "Real-Time Network Topology Optimization Using Dynamic Machine Learning Adaptation",
-      description: "Research Proposes a Network Topology Optimization Framework powered by reinforcement learning to autonomously adapt network configurations based on evolving traffic patterns. It improves key metrics like latency, throughput, and energy efficiency, offering a scalable solution for real-time management in IoT, 5G, and cyber-physical systems.",
-      technologies: ["Reinforcement Learning", "Network Optimization", "IoT", "Cyber-physical Systems"],
+      title: "Sentiment Analysis of Reddit Posts Using the BERT Model in Peer-to-Peer Networks",
+      description: "This research explores the application of BERT models for sentiment analysis on Reddit data, specifically analyzing how language patterns in peer-to-peer networks can be classified and understood through advanced NLP techniques.",
+      technologies: ["BERT", "Sentiment Analysis", "NLP", "P2P Networks"],
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?fit=crop&w=800&h=500",
-      fullDescription: "This research paper introduces a novel approach to network topology optimization through the application of dynamic machine learning algorithms. The proposed framework utilizes reinforcement learning techniques to autonomously reconfigure network topologies in response to evolving traffic patterns and changing network conditions.\n\nKey contributions include:\n\n1. Development of an adaptive algorithm that continuously monitors network performance metrics and proactively adjusts topology configurations to optimize resource utilization.\n\n2. Implementation of a scalable solution capable of handling complex networks found in IoT deployments, 5G infrastructure, and cyber-physical systems.\n\n3. Empirical validation showing significant improvements in critical network metrics including latency reduction (up to 28%), throughput enhancement (up to 35%), and energy efficiency improvements (up to 42%).\n\nThe research demonstrates how machine learning can be effectively applied to solve complex networking challenges in a way that adapts to real-world conditions without manual intervention, making it particularly valuable for next-generation network infrastructure management."
+      logo: "https://images.unsplash.com/photo-1562774053-701939374585?fit=crop&w=120&h=120",
+      institution: "IIT Madras",
+      fullDescription: "This comprehensive research investigates the application of BERT (Bidirectional Encoder Representations from Transformers) to analyze sentiment patterns in Reddit's peer-to-peer communication networks. The study leverages advanced natural language processing techniques to classify and understand complex language patterns, sarcasm, and emotional nuances present in social media discourse.\n\nKey contributions include:\n\n1. Development of a fine-tuned BERT model specifically optimized for Reddit's unique linguistic patterns and community-specific jargon.\n\n2. Implementation of a scalable classification system capable of processing large volumes of peer-to-peer communications while maintaining high accuracy.\n\n3. Empirical validation showing significant improvements in sentiment classification accuracy (up to 87%) compared to traditional lexicon-based approaches, particularly for ambiguous or context-dependent expressions.\n\nThe research demonstrates how transformer-based language models can be effectively applied to understand complex social dynamics in online communities, with potential applications in content moderation, trend analysis, and social behavior research."
     },
     {
       id: 2,
@@ -54,9 +79,29 @@ const ResearchSection = () => {
       description: "This research aims to understand how multilingual BERT (mBERT) learns crosslingual representations across high and low resource languages, analyzing its performance on various NLP Tasks using data of 104 languages.",
       technologies: ["mBERT", "Multilingual NLP", "Cross-lingual Language Models", "Transfer Learning"],
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?fit=crop&w=800&h=500",
+      logo: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?fit=crop&w=120&h=120",
+      institution: "GGSIPU",
       fullDescription: "This comprehensive research investigates the capabilities and limitations of multilingual BERT (mBERT) in learning cross-lingual and multi-lingual representations across a diverse set of 104 languages with varying resource availability.\n\nThe study makes several key contributions:\n\n1. Analysis of mBERT's representational capacity across both high-resource languages (e.g., English, French, German) and low-resource languages (e.g., Swahili, Kurdish, Nepali).\n\n2. Evaluation of zero-shot and few-shot transfer learning capabilities across multiple NLP tasks including named entity recognition, part-of-speech tagging, sentiment analysis, and question answering.\n\n3. Identification of specific linguistic features and typological characteristics that influence cross-lingual transfer success between language pairs.\n\n4. Proposal of novel fine-tuning strategies that significantly improve performance for low-resource languages without compromising performance on high-resource languages.\n\nThe findings reveal that while mBERT shows remarkable cross-lingual transfer abilities, its performance is strongly influenced by linguistic distance, script similarity, and training data quantity. The research provides actionable insights for practitioners working on multilingual NLP applications and contributes to our theoretical understanding of how large language models acquire cross-lingual capabilities."
     }
   ];
+
+  // Function to handle slider navigation
+  const handleSlideChange = (direction) => {
+    controls.start("exit", { custom: direction })
+      .then(() => {
+        const currentIndex = researchProjects.findIndex(p => p.id === selectedResearch.id);
+        let nextIndex;
+        
+        if (direction > 0) {
+          nextIndex = (currentIndex + 1) % researchProjects.length;
+        } else {
+          nextIndex = currentIndex - 1 < 0 ? researchProjects.length - 1 : currentIndex - 1;
+        }
+        
+        setSelectedResearch(researchProjects[nextIndex]);
+        controls.start("center");
+      });
+  };
 
   return (
     <section id="research" className="py-20 px-4 sm:px-6 lg:px-8 relative">
@@ -73,7 +118,7 @@ const ResearchSection = () => {
           </motion.h2>
           <motion.div variants={itemVariants} className="h-1 w-20 bg-purple mx-auto mb-8"></motion.div>
           <motion.p variants={itemVariants} className="text-gray-300 max-w-3xl mx-auto">
-            Ongoing research projects in cutting-edge fields of Network Optimization and Natural Language Processing.
+            Ongoing research projects in cutting-edge fields of Natural Language Processing and Machine Learning.
           </motion.p>
         </motion.div>
 
@@ -104,6 +149,17 @@ const ResearchSection = () => {
                   alt={project.title} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
+                
+                {/* Institution logo */}
+                <div className="absolute top-4 left-4 z-20">
+                  <div className="bg-white rounded-full w-12 h-12 flex items-center justify-center p-1 shadow-lg">
+                    <img 
+                      src={project.logo} 
+                      alt={project.institution}
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  </div>
+                </div>
                 
                 {/* Title overlay on the image */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
@@ -148,7 +204,7 @@ const ResearchSection = () => {
         </motion.div>
       </div>
 
-      {/* Modal for detailed research information */}
+      {/* Modal for detailed research information with sliding effect */}
       {selectedResearch && (
         <motion.div 
           initial={{ opacity: 0 }}
@@ -163,8 +219,15 @@ const ResearchSection = () => {
             animate="visible"
             className="glass-card max-w-4xl w-full max-h-[90vh] overflow-auto rounded-xl shadow-[0_0_30px_rgba(155,135,245,0.6)]"
             onClick={(e) => e.stopPropagation()}
+            ref={sliderRef}
           >
-            <div className="relative">
+            <motion.div 
+              variants={slideVariants}
+              initial="enter"
+              animate={controls}
+              custom={1}
+              className="relative"
+            >
               <button 
                 className="absolute top-4 right-4 bg-space-dark/80 p-2 rounded-full text-white hover:text-purple transition-colors z-30 shadow-neon-purple"
                 onClick={(e) => {
@@ -176,6 +239,31 @@ const ResearchSection = () => {
               </button>
               
               <div className="h-64 relative overflow-hidden">
+                {/* Slider navigation buttons */}
+                <button 
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-purple/80 rounded-full p-2 z-20 hover:bg-purple transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleSlideChange(-1);
+                  }}
+                >
+                  <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                
+                <button 
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-purple/80 rounded-full p-2 z-20 hover:bg-purple transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleSlideChange(1);
+                  }}
+                >
+                  <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                
                 {/* Image overlay for better text contrast */}
                 <div className="absolute inset-0 bg-gradient-to-t from-space-dark via-space-dark/60 to-transparent z-10"></div>
                 <img 
@@ -184,6 +272,20 @@ const ResearchSection = () => {
                   className="w-full h-full object-cover"
                 />
                 
+                {/* Institution logo in modal */}
+                <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
+                  <div className="bg-white rounded-full w-16 h-16 flex items-center justify-center p-1 shadow-lg">
+                    <img 
+                      src={selectedResearch.logo} 
+                      alt={selectedResearch.institution}
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  </div>
+                  <span className="bg-white/80 px-3 py-1 rounded-lg text-space-dark font-medium">
+                    {selectedResearch.institution}
+                  </span>
+                </div>
+                
                 {/* Title positioned at the bottom of the image */}
                 <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
                   <h3 className="text-3xl md:text-4xl font-bold text-white font-futuristic tracking-wider text-shadow-lg">
@@ -191,7 +293,7 @@ const ResearchSection = () => {
                   </h3>
                 </div>
               </div>
-            </div>
+            </motion.div>
             
             <div className="p-8 bg-space-dark/95 dark:bg-space-dark/95 light:bg-white/95">
               {/* Technologies badges */}

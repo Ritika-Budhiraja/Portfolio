@@ -72,6 +72,13 @@ export default {
 					deeper: '#6E59A5',
 					darkest: '#1A1F2C',
 				},
+				pink: {
+					light: '#FBD5E8',
+					DEFAULT: '#F472B6',
+					medium: '#EC4899',
+					dark: '#DB2777',
+					deeper: '#BE185D',
+				},
 				space: {
 					black: '#0f0f1b',
 					dark: '#1A1F2C',
@@ -146,11 +153,13 @@ export default {
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'purple-gradient': 'linear-gradient(90deg, #9b87f5 0%, #6E59A5 100%)',
+				'purple-pink-gradient': 'linear-gradient(90deg, #9b87f5 0%, #F472B6 100%)',
 				'space-gradient': 'linear-gradient(180deg, #1A1F2C 0%, #0f0f1b 100%)',
 			},
 			boxShadow: {
 				'neon-purple': '0 0 5px #9b87f5, 0 0 10px #9b87f5, 0 0 15px #9b87f5',
 				'neon-blue': '0 0 5px #8B5CF6, 0 0 10px #8B5CF6, 0 0 15px #8B5CF6',
+				'neon-pink': '0 0 5px #F472B6, 0 0 10px #F472B6, 0 0 15px #F472B6',
 			},
 		}
 	},

@@ -27,6 +27,14 @@ const ExperienceSection = () => {
 
   const experiences = [
     {
+      company: "DSEU University",
+      position: "Back End Developer",
+      description: "Image Analyzing - Worked on Python and FastAPI for IT Integration, Database Testing, and Data Loading. Developed backend systems for image analysis workflows.",
+      period: "January 2025 - March 2025 · Delhi, India (On-site)",
+      imageSrc: "https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=800&h=500",
+      skills: ["Python", "FastAPI", "IT Integration", "Database Testing", "Data Loading"]
+    },
+    {
       company: "WorldQuant Brain",
       position: "Research Consultant",
       description: "Engaged deeply with WorldQuant Brain, leveraging advanced finance and quantitative analysis concepts to drive research and generate data-driven insights for innovative trading models.",
@@ -103,6 +111,16 @@ const ExperienceSection = () => {
                   </div>
                   <p className="text-gray-300">{experience.description}</p>
                 </div>
+
+                {experience.skills && (
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {experience.skills.map((skill, i) => (
+                      <span key={i} className="bg-purple/20 text-purple-light px-2 py-1 rounded-full text-xs">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </motion.div>
             </motion.div>
           ))}

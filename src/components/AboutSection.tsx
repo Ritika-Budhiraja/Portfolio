@@ -1,7 +1,8 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Code, Database, Layers, FileText, BookOpen } from 'lucide-react';
+import { Code, Database, Layers, FileText, BookOpen, GraduationCap, School } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const AboutSection = () => {
   const containerVariants = {
@@ -53,6 +54,37 @@ const AboutSection = () => {
     }
   ];
 
+  const education = [
+    {
+      degree: "Bachelor of Science in Data Science",
+      institution: "Indian Institute of Technology Madras",
+      duration: "2023 - 2027",
+      grade: "CGPA: 8.2/10",
+      logo: "https://images.unsplash.com/photo-1562774053-701939374585?fit=crop&w=120&h=120"
+    },
+    {
+      degree: "Bachelor of Technology in Computer Science",
+      institution: "Guru Gobind Singh Indraprastha University",
+      duration: "2022 - 2026",
+      grade: "CGPA: 9.2/10 (Until 5th Semester)",
+      logo: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?fit=crop&w=120&h=120"
+    },
+    {
+      degree: "Senior Secondary (12th Grade)",
+      institution: "Arwachin Bharti Bhawan Sr Sec School",
+      duration: "2021 - 2022",
+      grade: "Percentage: 90%",
+      logo: "https://images.unsplash.com/photo-1494949649109-ecfc3b8c35df?fit=crop&w=120&h=120"
+    },
+    {
+      degree: "Secondary (10th Grade)",
+      institution: "Arwachin Bharti Bhawan Sr Sec School",
+      duration: "2019 - 2020",
+      grade: "Percentage: 93%",
+      logo: "https://images.unsplash.com/photo-1494949649109-ecfc3b8c35df?fit=crop&w=120&h=120"
+    }
+  ]
+
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-7xl mx-auto">
@@ -68,12 +100,18 @@ const AboutSection = () => {
           </motion.h2>
           <motion.div variants={itemVariants} className="h-1 w-20 bg-purple mx-auto mb-8"></motion.div>
           <motion.p variants={itemVariants} className="text-gray-300 max-w-3xl mx-auto">
-            I'm a dual-degree Data Scientist and Computer Science Engineer with a passion for AI, ML, and Data Science. 
-            Currently pursuing BSc in Data Science at IIT Madras (2027) and B.Tech in CSE at GGSIPU (2026).
+            Hi, I'm Ritika! I thrive on challenges, creativity, and collaboration.
+            With a strong tech foundation, I've been actively involved in initiatives that blend innovation with team building. 
+            My journey has been a dynamic mix of learning, leading, and growing—whether it's organizing impactful events, 
+            contributing to cutting-edge projects, or empowering my team's success.
+          </motion.p>
+          <motion.p variants={itemVariants} className="text-gray-300 max-w-3xl mx-auto mt-4">
+            From brainstorming ideas to solving complex problems, I believe in uplifting those around me and driving collective growth. 
+            I'm always open to connecting with like-minded individuals and exploring new opportunities that spark innovation and teamwork!
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 gap-10">
           <motion.div 
             variants={containerVariants}
             initial="hidden"
@@ -85,31 +123,44 @@ const AboutSection = () => {
               Education
             </motion.h3>
             
-            <motion.div variants={itemVariants} className="mb-8">
-              <div className="border-l-2 border-purple pl-4 pb-8 relative">
-                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-purple"></div>
-                <h4 className="text-xl font-medium text-white">Bachelor of Science in Data Science</h4>
-                <p className="text-purple">Indian Institute of Technology Madras</p>
-                <p className="text-gray-400">2023 - 2027</p>
-                <p className="text-gray-300 mt-2">CGPA: 8.2/10</p>
-              </div>
+            <Tabs defaultValue="bachelor" className="w-full">
+              <TabsList className="grid grid-cols-2 md:grid-cols-4 mb-8 bg-space-dark/50">
+                <TabsTrigger value="bachelor" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple data-[state=active]:to-pink-500">
+                  Bachelor's Degree
+                </TabsTrigger>
+                <TabsTrigger value="bachelorbtech" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple data-[state=active]:to-pink-500">
+                  B.Tech Degree
+                </TabsTrigger>
+                <TabsTrigger value="senior" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple data-[state=active]:to-pink-500">
+                  Senior Secondary
+                </TabsTrigger>
+                <TabsTrigger value="secondary" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple data-[state=active]:to-pink-500">
+                  Secondary
+                </TabsTrigger>
+              </TabsList>
               
-              <div className="border-l-2 border-purple pl-4 pb-8 relative">
-                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-purple"></div>
-                <h4 className="text-xl font-medium text-white">Bachelor of Technology in Computer Science</h4>
-                <p className="text-purple">Guru Gobind Singh Indraprastha University</p>
-                <p className="text-gray-400">2022 - 2026</p>
-                <p className="text-gray-300 mt-2">CGPA: 9.2/10 (Until 5th Semester)</p>
-              </div>
-              
-              <div className="border-l-2 border-purple pl-4 relative">
-                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-purple"></div>
-                <h4 className="text-xl font-medium text-white">Class XII (Science)</h4>
-                <p className="text-purple">Arwachin Bharti Bhawan Ser Sec School</p>
-                <p className="text-gray-400">2021 - 2022</p>
-                <p className="text-gray-300 mt-2">Percentage: 90%</p>
-              </div>
-            </motion.div>
+              {education.map((edu, index) => (
+                <TabsContent key={index} value={index === 0 ? "bachelor" : index === 1 ? "bachelorbtech" : index === 2 ? "senior" : "secondary"}>
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="bg-gradient-to-r from-purple/20 to-pink-500/20 p-6 rounded-xl border border-purple/30 flex flex-col md:flex-row items-center gap-6"
+                  >
+                    <div className="w-24 h-24 rounded-full overflow-hidden flex-shrink-0 bg-gradient-to-r from-purple to-pink-500 p-1">
+                      <img src={edu.logo} alt={edu.institution} className="w-full h-full object-cover rounded-full" />
+                    </div>
+                    
+                    <div className="flex-1 text-center md:text-left">
+                      <h4 className="text-xl font-medium text-white">{edu.degree}</h4>
+                      <p className="text-purple-light text-lg">{edu.institution}</p>
+                      <p className="text-gray-400">{edu.duration}</p>
+                      <p className="text-gray-300 mt-2">{edu.grade}</p>
+                    </div>
+                  </motion.div>
+                </TabsContent>
+              ))}
+            </Tabs>
           </motion.div>
 
           <motion.div 
@@ -145,36 +196,36 @@ const AboutSection = () => {
               ))}
             </div>
           </motion.div>
-        </div>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="mt-16 glass-card p-8"
-        >
-          <motion.h3 variants={itemVariants} className="text-2xl font-semibold text-white mb-6">
-            Leadership & Memberships
-          </motion.h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <motion.div variants={itemVariants} className="bg-purple/10 p-6 rounded-xl border border-purple/30">
-              <h4 className="text-lg font-medium text-white mb-2">President</h4>
-              <p className="text-purple-light">Google Developers Group on Campus</p>
-            </motion.div>
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="glass-card p-8"
+          >
+            <motion.h3 variants={itemVariants} className="text-2xl font-semibold text-white mb-6">
+              Leadership & Memberships
+            </motion.h3>
             
-            <motion.div variants={itemVariants} className="bg-purple/10 p-6 rounded-xl border border-purple/30">
-              <h4 className="text-lg font-medium text-white mb-2">Core Member</h4>
-              <p className="text-purple-light">Cultural Folk Dance Society</p>
-            </motion.div>
-            
-            <motion.div variants={itemVariants} className="bg-purple/10 p-6 rounded-xl border border-purple/30">
-              <h4 className="text-lg font-medium text-white mb-2">Student Advocate</h4>
-              <p className="text-purple-light">Web3</p>
-            </motion.div>
-          </div>
-        </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <motion.div variants={itemVariants} className="bg-purple/10 p-6 rounded-xl border border-purple/30">
+                <h4 className="text-lg font-medium text-white mb-2">President</h4>
+                <p className="text-purple-light">Google Developers Group on Campus</p>
+              </motion.div>
+              
+              <motion.div variants={itemVariants} className="bg-purple/10 p-6 rounded-xl border border-purple/30">
+                <h4 className="text-lg font-medium text-white mb-2">Core Member</h4>
+                <p className="text-purple-light">Cultural Folk Dance Society</p>
+              </motion.div>
+              
+              <motion.div variants={itemVariants} className="bg-purple/10 p-6 rounded-xl border border-purple/30">
+                <h4 className="text-lg font-medium text-white mb-2">Student Advocate</h4>
+                <p className="text-purple-light">Web3</p>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
