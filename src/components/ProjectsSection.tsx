@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink, X } from 'lucide-react';
+import { Github, ExternalLink, X, Cylinder, AlertTriangle } from 'lucide-react';
 
 interface Project {
   id: number;
@@ -10,6 +10,7 @@ interface Project {
   image: string;
   githubUrl?: string;
   liveUrl?: string;
+  customIcon?: boolean;
 }
 
 const ProjectsSection = () => {
@@ -54,7 +55,8 @@ const ProjectsSection = () => {
       description: "Designed and implemented a smart gas leak detection system with sensors (MQ series gas sensors), motors (servo motors for window automation), and rechargeable batteries for uninterrupted operation. Ensured real-time monitoring, triggering alarms upon detection, and sending notifications via IoT protocols for swift response and enhanced safety measures.",
       techStack: ["Python", "Arduino", "MQ-Sensor"],
       image: "https://images.unsplash.com/photo-1621846251783-6f33c0a9ea14?fit=crop&w=800&h=500",
-      githubUrl: "https://github.com/Ritika-Budhiraja/eco-alert"
+      githubUrl: "https://github.com/Ritika-Budhiraja/eco-alert",
+      customIcon: true
     },
     {
       id: 6,
@@ -159,11 +161,31 @@ const ProjectsSection = () => {
             >
               <div className="relative h-48 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-space-dark to-transparent z-10"></div>
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                />
+                {project.customIcon && project.title === "EcoAlert" ? (
+                  <div className="absolute inset-0 flex items-center justify-center z-10">
+                    <div className="relative w-full h-full flex items-center justify-center">
+                      {/* Custom EcoAlert image with cylinder and alert */}
+                      <div className="absolute h-full w-full flex items-center justify-center">
+                        <div className="relative">
+                          <Cylinder className="w-24 h-24 text-orange-500 animate-pulse-glow" strokeWidth={1.5} />
+                          <div className="absolute -top-1/3 -right-1/3">
+                            <div className="relative">
+                              <div className="animate-ping absolute h-8 w-8 rounded-full bg-red-500 opacity-75"></div>
+                              <AlertTriangle className="relative w-10 h-10 text-red-500 animate-pulse" strokeWidth={2} />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-b from-space-dark/60 to-space-dark/90 z-0"></div>
+                    </div>
+                  </div>
+                ) : (
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  />
+                )}
               </div>
               <div className="p-6 relative z-20">
                 <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
@@ -213,11 +235,32 @@ const ProjectsSection = () => {
               </button>
               <div className="h-64 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-space-dark to-transparent z-10"></div>
-                <img 
-                  src={selectedProject.image} 
-                  alt={selectedProject.title} 
-                  className="w-full h-full object-cover"
-                />
+                
+                {selectedProject.customIcon && selectedProject.title === "EcoAlert" ? (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="relative w-full h-full flex items-center justify-center">
+                      {/* Custom EcoAlert detailed image with cylinder and alert */}
+                      <div className="absolute h-full w-full flex items-center justify-center">
+                        <div className="relative">
+                          <Cylinder className="w-32 h-32 text-orange-500 animate-pulse-glow" strokeWidth={1.5} />
+                          <div className="absolute -top-1/4 -right-1/4">
+                            <div className="relative">
+                              <div className="animate-ping absolute h-10 w-10 rounded-full bg-red-500 opacity-75"></div>
+                              <AlertTriangle className="relative w-12 h-12 text-red-500 animate-pulse" strokeWidth={2} />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-b from-space-dark/60 to-space-dark/90"></div>
+                    </div>
+                  </div>
+                ) : (
+                  <img 
+                    src={selectedProject.image} 
+                    alt={selectedProject.title} 
+                    className="w-full h-full object-cover"
+                  />
+                )}
               </div>
             </div>
             
