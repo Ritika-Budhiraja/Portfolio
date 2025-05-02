@@ -22,9 +22,14 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Apply theme to document body
+    document.documentElement.classList.toggle('light-mode', !isDarkMode);
+    document.documentElement.classList.toggle('dark-mode', isDarkMode);
+  }, [isDarkMode]);
+
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
-    // In a real implementation, you would toggle classes on the body or apply theme changes
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -58,26 +63,26 @@ const Navbar = () => {
           </div>
           
           <div className="hidden md:flex items-center space-x-6">
-            <div className="flex items-center gap-2 mr-2">
-              <Sun className={`h-4 w-4 transition-all duration-500 ${isDarkMode ? 'opacity-50' : 'text-yellow-300'}`} />
+            <div className="flex items-center gap-3 mr-3">
+              <Sun className={`h-4 w-4 transition-all duration-500 ${isDarkMode ? 'opacity-50' : 'text-yellow-300 animate-pulse'}`} />
               <Switch
                 checked={isDarkMode}
                 onCheckedChange={toggleTheme}
                 className="data-[state=checked]:bg-purple-dark data-[state=unchecked]:bg-amber-300"
               />
-              <Moon className={`h-4 w-4 transition-all duration-500 ${isDarkMode ? 'text-purple-light' : 'opacity-50'}`} />
+              <Moon className={`h-4 w-4 transition-all duration-500 ${isDarkMode ? 'text-purple-light animate-pulse' : 'opacity-50'}`} />
             </div>
             
-            <a href="https://github.com/Ritika-Budhiraja" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110">
+            <a href="https://github.com/Ritika-Budhiraja" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110 mx-2">
               <Github className="h-5 w-5" />
             </a>
-            <a href="https://www.linkedin.com/in/ritika-budhiraja-/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110">
+            <a href="https://www.linkedin.com/in/ritika-budhiraja-/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110 mx-2">
               <Linkedin className="h-5 w-5" />
             </a>
-            <a href="mailto:ritikabudhiraja28@gmail.com" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110">
+            <a href="mailto:ritikabudhiraja28@gmail.com" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110 mx-2">
               <Mail className="h-5 w-5" />
             </a>
-            <a href="#resume" className="flex items-center gap-2 bg-purple hover:bg-purple-medium text-white px-4 py-2 rounded-lg transition-all">
+            <a href="#resume" className="flex items-center gap-2 bg-purple hover:bg-purple-medium text-white px-4 py-2 rounded-lg transition-all hover:shadow-neon-purple">
               <Download className="h-4 w-4" />
               Resume
             </a>

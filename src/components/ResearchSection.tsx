@@ -88,34 +88,61 @@ const ResearchSection = () => {
             <motion.div 
               key={project.id}
               variants={itemVariants}
-              className="glass-card overflow-hidden rounded-xl relative group"
+              className="overflow-hidden rounded-xl relative group purple-glow dark:bg-space-dark/60 light:bg-white/80 backdrop-blur-md shadow-lg transform transition-all duration-500 hover:scale-105 cursor-pointer"
               onClick={() => setSelectedResearch(project)}
+              whileHover={{ y: -5 }}
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-space-dark z-10"></div>
-              <div className="absolute inset-0 bg-gradient-to-b from-purple/30 via-transparent to-space-dark opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
-              
-              <img 
-                src={project.image} 
-                alt={project.title} 
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              
-              <div className="absolute inset-0 flex flex-col justify-end p-8 z-20">
-                <div className="transform transition-transform duration-300 group-hover:-translate-y-4">
-                  <h3 className="text-2xl font-bold text-white mb-4 font-futuristic tracking-wider text-shadow-lg">{project.title}</h3>
-                  <p className="text-gray-300 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">{project.description}</p>
+              <div className="relative h-64">
+                {/* Semi-transparent overlay for better text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-space-dark via-space-dark/40 to-transparent z-10"></div>
+                
+                {/* Purple glow on hover */}
+                <div className="absolute inset-0 bg-purple/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+                
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                
+                {/* Title overlay on the image */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+                  <h3 className="text-2xl font-bold text-white mb-3 font-futuristic tracking-wider text-shadow-lg group-hover:text-purple transition-colors duration-300">
+                    {project.title}
+                  </h3>
                   
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, i) => (
-                      <span key={i} className="bg-purple/30 text-white px-3 py-1 rounded-full text-sm">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                  {/* Short description that appears on hover */}
+                  <p className="text-gray-200 mb-4 transform transition-all duration-500 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+                    {project.description.substring(0, 100)}...
+                  </p>
                 </div>
               </div>
               
-              <div className="absolute inset-0 border-2 border-purple opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl shadow-[0_0_15px_rgba(155,135,245,0.5)] z-0"></div>
+              {/* Technologies badges at the bottom */}
+              <div className="p-4 bg-space-dark/90 dark:bg-space-dark/90 light:bg-white/90">
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.slice(0, 3).map((tech, i) => (
+                    <span key={i} className="bg-purple/30 text-white px-3 py-1 rounded-full text-sm">
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <span className="bg-purple/20 text-white px-3 py-1 rounded-full text-sm">
+                      +{project.technologies.length - 3} more
+                    </span>
+                  )}
+                </div>
+              </div>
+              
+              {/* Animated border and glow effect */}
+              <div className="absolute inset-0 border-2 border-purple opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl z-0"></div>
+              
+              {/* "Read More" button that appears on hover */}
+              <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="bg-purple text-white px-3 py-1 rounded-full text-sm shadow-neon-purple animate-pulse-glow">
+                  Read Research
+                </span>
+              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -127,19 +154,19 @@ const ResearchSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/80 backdrop-blur-lg z-50 flex items-center justify-center p-4 overflow-y-auto"
           onClick={() => setSelectedResearch(null)}
         >
           <motion.div 
             variants={modalVariants}
             initial="hidden"
             animate="visible"
-            className="glass-card max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-xl"
+            className="glass-card max-w-4xl w-full max-h-[90vh] overflow-auto rounded-xl shadow-[0_0_30px_rgba(155,135,245,0.6)]"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative">
               <button 
-                className="absolute top-4 right-4 bg-space-dark/80 p-2 rounded-full text-white hover:text-purple transition-colors z-30"
+                className="absolute top-4 right-4 bg-space-dark/80 p-2 rounded-full text-white hover:text-purple transition-colors z-30 shadow-neon-purple"
                 onClick={(e) => {
                   e.stopPropagation();
                   setSelectedResearch(null);
@@ -147,41 +174,76 @@ const ResearchSection = () => {
               >
                 <X className="w-6 h-6" />
               </button>
-              <div className="h-64 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-space-dark to-transparent z-10"></div>
+              
+              <div className="h-64 relative overflow-hidden">
+                {/* Image overlay for better text contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-space-dark via-space-dark/60 to-transparent z-10"></div>
                 <img 
                   src={selectedResearch.image} 
                   alt={selectedResearch.title} 
                   className="w-full h-full object-cover"
                 />
+                
+                {/* Title positioned at the bottom of the image */}
+                <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
+                  <h3 className="text-3xl md:text-4xl font-bold text-white font-futuristic tracking-wider text-shadow-lg">
+                    {selectedResearch.title}
+                  </h3>
+                </div>
               </div>
             </div>
             
-            <div className="p-8">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 font-futuristic tracking-wider">{selectedResearch.title}</h3>
+            <div className="p-8 bg-space-dark/95 dark:bg-space-dark/95 light:bg-white/95">
+              {/* Technologies badges */}
+              <div className="mb-6 flex flex-wrap gap-2">
+                {selectedResearch.technologies.map((tech, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="bg-purple/20 text-purple-light px-3 py-1 rounded-full text-sm"
+                  >
+                    {tech}
+                  </motion.span>
+                ))}
+              </div>
               
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold text-white mb-2">Abstract:</h4>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+              >
+                <h4 className="text-xl font-semibold text-purple mb-3">Abstract:</h4>
                 <p className="text-gray-300 mb-6">{selectedResearch.description}</p>
                 
-                <h4 className="text-lg font-semibold text-white mb-2">Full Research Description:</h4>
+                <h4 className="text-xl font-semibold text-purple mb-3">Research Details:</h4>
                 <div className="text-gray-300 space-y-4">
                   {selectedResearch.fullDescription.split('\n\n').map((paragraph, idx) => (
-                    <p key={idx}>{paragraph}</p>
+                    <motion.p 
+                      key={idx}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4 + (idx * 0.1) }}
+                      className="leading-relaxed"
+                    >
+                      {paragraph}
+                    </motion.p>
                   ))}
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="mt-8">
-                <h4 className="text-lg font-semibold text-white mb-2">Technologies:</h4>
-                <div className="flex flex-wrap gap-2">
-                  {selectedResearch.technologies.map((tech, index) => (
-                    <span key={index} className="bg-purple/20 text-purple-light px-3 py-1 rounded-full text-sm">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              {/* Call to action button */}
+              <motion.div 
+                className="mt-8 text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+              >
+                <button className="btn-gradient px-8 py-3 rounded-lg shadow-neon-purple transition-all hover:scale-105">
+                  Download Research Paper
+                </button>
+              </motion.div>
             </div>
           </motion.div>
         </motion.div>
