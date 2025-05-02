@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink, X, Cylinder, AlertTriangle } from 'lucide-react';
+import { Github, ExternalLink, X, Cylinder, AlertTriangle, Phone } from 'lucide-react';
 
 interface Project {
   id: number;
@@ -174,6 +174,18 @@ const ProjectsSection = () => {
                               <AlertTriangle className="relative w-10 h-10 text-red-500 animate-pulse" strokeWidth={2} />
                             </div>
                           </div>
+                          
+                          {/* Adding warning text and phone icon */}
+                          <div className="absolute -bottom-6 w-48 text-center">
+                            <div className="bg-red-500/80 text-white px-2 py-1 rounded font-bold text-sm animate-pulse">
+                              GAS LEAKAGE DETECTED
+                            </div>
+                          </div>
+                          <div className="absolute top-1/2 -left-8">
+                            <div className="bg-green-500/80 rounded-full p-2 animate-pulse">
+                              <Phone className="w-5 h-5 text-white" strokeWidth={2} />
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <div className="absolute inset-0 bg-gradient-to-b from-space-dark/60 to-space-dark/90 z-0"></div>
@@ -247,6 +259,18 @@ const ProjectsSection = () => {
                             <div className="relative">
                               <div className="animate-ping absolute h-10 w-10 rounded-full bg-red-500 opacity-75"></div>
                               <AlertTriangle className="relative w-12 h-12 text-red-500 animate-pulse" strokeWidth={2} />
+                            </div>
+                          </div>
+                          
+                          {/* Adding warning text and phone icon to modal view */}
+                          <div className="absolute -bottom-8 w-64 text-center">
+                            <div className="bg-red-500/80 text-white px-4 py-2 rounded-md font-bold text-base animate-pulse">
+                              GAS LEAKAGE DETECTED
+                            </div>
+                          </div>
+                          <div className="absolute top-1/2 -left-16">
+                            <div className="bg-green-500/80 rounded-full p-3 animate-pulse">
+                              <Phone className="w-7 h-7 text-white" strokeWidth={2} />
                             </div>
                           </div>
                         </div>
