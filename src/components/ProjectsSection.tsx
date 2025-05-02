@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink, X } from 'lucide-react';
@@ -54,7 +53,7 @@ const ProjectsSection = () => {
       title: "EcoAlert",
       description: "Designed and implemented a smart gas leak detection system with sensors (MQ series gas sensors), motors (servo motors for window automation), and rechargeable batteries for uninterrupted operation. Ensured real-time monitoring, triggering alarms upon detection, and sending notifications via IoT protocols for swift response and enhanced safety measures.",
       techStack: ["Python", "Arduino", "MQ-Sensor"],
-      image: "https://images.unsplash.com/photo-1581092787765-e3feb951d987?fit=crop&w=800&h=500",
+      image: "https://images.unsplash.com/photo-1621846251783-6f33c0a9ea14?fit=crop&w=800&h=500",
       githubUrl: "https://github.com/Ritika-Budhiraja/eco-alert"
     },
     {

@@ -85,6 +85,10 @@
     text-shadow: -1px -1px 0 #8B5CF6, 1px -1px 0 #8B5CF6, -1px 1px 0 #8B5CF6, 1px 1px 0 #8B5CF6;
   }
   
+  .text-shadow-lg {
+    text-shadow: 0 0 8px rgba(155, 135, 245, 0.7);
+  }
+  
   .purple-glow {
     box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
   }

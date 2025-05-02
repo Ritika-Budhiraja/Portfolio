@@ -1,11 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Github, Linkedin, Mail, Download } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Mail, Download, Sun, Moon } from 'lucide-react';
+import { Switch } from './ui/switch';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +21,11 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+    // In a real implementation, you would toggle classes on the body or apply theme changes
+  };
 
   const scrollToSection = (sectionId: string) => {
     setIsOpen(false);
@@ -50,14 +57,24 @@ const Navbar = () => {
             </div>
           </div>
           
-          <div className="hidden md:flex items-center space-x-4">
-            <a href="https://github.com/Ritika-Budhiraja" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple">
+          <div className="hidden md:flex items-center space-x-6">
+            <div className="flex items-center gap-2 mr-2">
+              <Sun className={`h-4 w-4 transition-all duration-500 ${isDarkMode ? 'opacity-50' : 'text-yellow-300'}`} />
+              <Switch
+                checked={isDarkMode}
+                onCheckedChange={toggleTheme}
+                className="data-[state=checked]:bg-purple-dark data-[state=unchecked]:bg-amber-300"
+              />
+              <Moon className={`h-4 w-4 transition-all duration-500 ${isDarkMode ? 'text-purple-light' : 'opacity-50'}`} />
+            </div>
+            
+            <a href="https://github.com/Ritika-Budhiraja" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110">
               <Github className="h-5 w-5" />
             </a>
-            <a href="https://www.linkedin.com/in/ritika-budhiraja-/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple">
+            <a href="https://www.linkedin.com/in/ritika-budhiraja-/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110">
               <Linkedin className="h-5 w-5" />
             </a>
-            <a href="mailto:ritikabudhiraja28@gmail.com" className="text-white hover:text-purple">
+            <a href="mailto:ritikabudhiraja28@gmail.com" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110">
               <Mail className="h-5 w-5" />
             </a>
             <a href="#resume" className="flex items-center gap-2 bg-purple hover:bg-purple-medium text-white px-4 py-2 rounded-lg transition-all">
@@ -89,17 +106,32 @@ const Navbar = () => {
             <button onClick={() => scrollToSection('certifications')} className="block text-white hover:text-purple px-3 py-2 w-full text-left">Certifications</button>
             <button onClick={() => scrollToSection('contact')} className="block text-white hover:text-purple px-3 py-2 w-full text-left">Contact</button>
             
-            <div className="flex items-center space-x-4 px-3 py-2">
-              <a href="https://github.com/Ritika-Budhiraja" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple">
-                <Github className="h-5 w-5" />
-              </a>
-              <a href="https://www.linkedin.com/in/ritika-budhiraja-/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple">
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a href="mailto:ritikabudhiraja28@gmail.com" className="text-white hover:text-purple">
-                <Mail className="h-5 w-5" />
-              </a>
-              <a href="#resume" className="flex items-center gap-2 bg-purple hover:bg-purple-medium text-white px-4 py-2 rounded-lg transition-all">
+            <div className="flex items-center justify-between px-3 py-2">
+              <div className="flex items-center gap-2">
+                <Sun className={`h-4 w-4 ${isDarkMode ? 'opacity-50' : 'text-yellow-300'}`} />
+                <Switch
+                  checked={isDarkMode}
+                  onCheckedChange={toggleTheme}
+                  className="data-[state=checked]:bg-purple-dark data-[state=unchecked]:bg-amber-300"
+                />
+                <Moon className={`h-4 w-4 ${isDarkMode ? 'text-purple-light' : 'opacity-50'}`} />
+              </div>
+              
+              <div className="flex items-center space-x-4">
+                <a href="https://github.com/Ritika-Budhiraja" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple">
+                  <Github className="h-5 w-5" />
+                </a>
+                <a href="https://www.linkedin.com/in/ritika-budhiraja-/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple">
+                  <Linkedin className="h-5 w-5" />
+                </a>
+                <a href="mailto:ritikabudhiraja28@gmail.com" className="text-white hover:text-purple">
+                  <Mail className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
+            
+            <div className="px-3 py-2">
+              <a href="#resume" className="flex items-center gap-2 bg-purple hover:bg-purple-medium text-white px-4 py-2 rounded-lg transition-all w-full justify-center">
                 <Download className="h-4 w-4" />
                 Resume
               </a>
