@@ -1,9 +1,12 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import * as THREE from 'three';
 
 const HeroSection = () => {
-  // Variants for text animation
+  const mountRef = useRef(null);
+  
+  // Animation variants
   const containerVariants = {
     hidden: {
       opacity: 0
@@ -16,6 +19,7 @@ const HeroSection = () => {
       }
     }
   };
+  
   const itemVariants = {
     hidden: {
       y: 20,
@@ -31,8 +35,108 @@ const HeroSection = () => {
     }
   };
   
+  // THREE.js background animation
+  useEffect(() => {
+    // Create scene
+    const scene = new THREE.Scene();
+    
+    // Create camera
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 5;
+    
+    // Create renderer
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000, 0);
+    
+    // Only append if it doesn't exist yet
+    if (mountRef.current && !mountRef.current.querySelector('canvas')) {
+      mountRef.current.appendChild(renderer.domElement);
+    }
+    
+    // Create particles
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesCount = 2000;
+    
+    const posArray = new Float32Array(particlesCount * 3);
+    for (let i = 0; i < particlesCount * 3; i++) {
+      posArray[i] = (Math.random() - 0.5) * 10;
+    }
+    
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    
+    // Create particle material
+    const particlesMaterial = new THREE.PointsMaterial({
+      size: 0.02,
+      color: 0x9b87f5, // Purple color matching theme
+      transparent: true,
+      opacity: 0.8,
+      blending: THREE.AdditiveBlending
+    });
+    
+    // Create particle system
+    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particlesMesh);
+    
+    // Add some ambient light
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+    
+    // Animation loop
+    const animate = () => {
+      requestAnimationFrame(animate);
+      
+      particlesMesh.rotation.x += 0.0005;
+      particlesMesh.rotation.y += 0.0005;
+      
+      // Mouse movement effect
+      const handleMouseMove = (event) => {
+        const x = (event.clientX / window.innerWidth) * 2 - 1;
+        const y = -(event.clientY / window.innerHeight) * 2 + 1;
+        
+        particlesMesh.rotation.x += y * 0.0005;
+        particlesMesh.rotation.y += x * 0.0005;
+      };
+      
+      window.addEventListener('mousemove', handleMouseMove);
+      
+      renderer.render(scene, camera);
+    };
+    
+    animate();
+    
+    // Handle window resize
+    const handleResize = () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('mousemove', () => {});
+      if (mountRef.current) {
+        const canvas = mountRef.current.querySelector('canvas');
+        if (canvas) {
+          mountRef.current.removeChild(canvas);
+        }
+      }
+      
+      // Dispose resources
+      particlesGeometry.dispose();
+      particlesMaterial.dispose();
+      renderer.dispose();
+    };
+  }, []);
+  
   return (
     <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-space-dark to-space-dark/90">
+      {/* THREE.js container */}
+      <div ref={mountRef} className="absolute inset-0 z-0" />
+      
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-radial from-purple/10 to-transparent opacity-30"></div>
       
