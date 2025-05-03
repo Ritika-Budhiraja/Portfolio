@@ -56,21 +56,21 @@ const HeroSection = () => {
     
     // Create particles
     const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 2000;
+    const particlesCount = 3000; // Increased particle count for more visual impact
     
     const posArray = new Float32Array(particlesCount * 3);
     for (let i = 0; i < particlesCount * 3; i++) {
-      posArray[i] = (Math.random() - 0.5) * 10;
+      posArray[i] = (Math.random() - 0.5) * 15; // Wider spread
     }
     
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
     
     // Create particle material
     const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.02,
+      size: 0.03, // Slightly larger particles
       color: 0x9b87f5, // Purple color matching theme
       transparent: true,
-      opacity: 0.8,
+      opacity: 0.9, // More visible
       blending: THREE.AdditiveBlending
     });
     
@@ -79,26 +79,31 @@ const HeroSection = () => {
     scene.add(particlesMesh);
     
     // Add some ambient light
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7); // Brighter ambient light
     scene.add(ambientLight);
+    
+    // Mouse movement effect variables
+    let mouseX = 0;
+    let mouseY = 0;
+    
+    // Mouse movement effect handler
+    const handleMouseMove = (event) => {
+      mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+      mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
     
     // Animation loop
     const animate = () => {
       requestAnimationFrame(animate);
       
-      particlesMesh.rotation.x += 0.0005;
-      particlesMesh.rotation.y += 0.0005;
+      particlesMesh.rotation.x += 0.001;
+      particlesMesh.rotation.y += 0.001;
       
-      // Mouse movement effect
-      const handleMouseMove = (event) => {
-        const x = (event.clientX / window.innerWidth) * 2 - 1;
-        const y = -(event.clientY / window.innerHeight) * 2 + 1;
-        
-        particlesMesh.rotation.x += y * 0.0005;
-        particlesMesh.rotation.y += x * 0.0005;
-      };
-      
-      window.addEventListener('mousemove', handleMouseMove);
+      // Apply mouse movement effect with smoother transition
+      particlesMesh.rotation.x += mouseY * 0.0003;
+      particlesMesh.rotation.y += mouseX * 0.0003;
       
       renderer.render(scene, camera);
     };
@@ -117,7 +122,7 @@ const HeroSection = () => {
     // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
-      window.removeEventListener('mousemove', () => {});
+      window.removeEventListener('mousemove', handleMouseMove);
       if (mountRef.current) {
         const canvas = mountRef.current.querySelector('canvas');
         if (canvas) {
