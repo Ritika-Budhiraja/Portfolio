@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { X } from 'lucide-react';
 
 const ResearchSection = () => {
@@ -67,7 +67,7 @@ const ResearchSection = () => {
       title: "Sentiment Analysis of Reddit Posts Using the BERT Model in Peer-to-Peer Networks",
       description: "This research explores the application of BERT models for sentiment analysis on Reddit data, specifically analyzing how language patterns in peer-to-peer networks can be classified and understood through advanced NLP techniques.",
       technologies: ["BERT", "Sentiment Analysis", "NLP", "P2P Networks"],
-      image: "https://images.unsplash.com/photo-1591696331096-c73fd49c74e7?fit=crop&w=800&h=500",
+      image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?fit=crop&w=800&h=500",
       logo: "https://images.unsplash.com/photo-1562774053-701939374585?fit=crop&w=120&h=120",
       institution: "IIT Madras",
       fullDescription: "This comprehensive research investigates the application of BERT (Bidirectional Encoder Representations from Transformers) to analyze sentiment patterns in Reddit's peer-to-peer communication networks. The study leverages advanced natural language processing techniques to classify and understand complex language patterns, sarcasm, and emotional nuances present in social media discourse.\n\nKey contributions include:\n\n1. Development of a fine-tuned BERT model specifically optimized for Reddit's unique linguistic patterns and community-specific jargon.\n\n2. Implementation of a scalable classification system capable of processing large volumes of peer-to-peer communications while maintaining high accuracy.\n\n3. Empirical validation showing significant improvements in sentiment classification accuracy (up to 87%) compared to traditional lexicon-based approaches, particularly for ambiguous or context-dependent expressions.\n\nThe research demonstrates how transformer-based language models can be effectively applied to understand complex social dynamics in online communities, with potential applications in content moderation, trend analysis, and social behavior research."
@@ -77,7 +77,7 @@ const ResearchSection = () => {
       title: "Cross Lingual and Multi Lingual NLP",
       description: "This research aims to understand how multilingual BERT (mBERT) learns crosslingual representations across high and low resource languages, analyzing its performance on various NLP Tasks using data of 104 languages.",
       technologies: ["mBERT", "Multilingual NLP", "Cross-lingual Language Models", "Transfer Learning"],
-      image: "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?fit=crop&w=800&h=500",
+      image: "https://images.unsplash.com/photo-1568952433726-3896e3881c65?fit=crop&w=800&h=500",
       logo: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?fit=crop&w=120&h=120",
       institution: "GGSIPU",
       fullDescription: "This comprehensive research investigates the capabilities and limitations of multilingual BERT (mBERT) in learning cross-lingual and multi-lingual representations across a diverse set of 104 languages with varying resource availability.\n\nThe study makes several key contributions:\n\n1. Analysis of mBERT's representational capacity across both high-resource languages (e.g., English, French, German) and low-resource languages (e.g., Swahili, Kurdish, Nepali).\n\n2. Evaluation of zero-shot and few-shot transfer learning capabilities across multiple NLP tasks including named entity recognition, part-of-speech tagging, sentiment analysis, and question answering.\n\n3. Identification of specific linguistic features and typological characteristics that influence cross-lingual transfer success between language pairs.\n\n4. Proposal of novel fine-tuning strategies that significantly improve performance for low-resource languages without compromising performance on high-resource languages.\n\nThe findings reveal that while mBERT shows remarkable cross-lingual transfer abilities, its performance is strongly influenced by linguistic distance, script similarity, and training data quantity. The research provides actionable insights for practitioners working on multilingual NLP applications and contributes to our theoretical understanding of how large language models acquire cross-lingual capabilities."
@@ -87,7 +87,7 @@ const ResearchSection = () => {
       title: "Real-Time Network Topology Optimization Using Dynamic Machine Learning Adaptation",
       description: "This research presents a novel framework for dynamically optimizing network topologies using reinforcement learning in response to real-time traffic patterns and user demands, significantly improving network performance metrics.",
       technologies: ["Reinforcement Learning", "Network Optimization", "Machine Learning", "IoT", "5G Networks"],
-      image: "https://images.unsplash.com/photo-1545987796-200677ee1011?fit=crop&w=800&h=500",
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?fit=crop&w=800&h=500",
       logo: "https://images.unsplash.com/photo-1590402494610-2c378a9114c6?fit=crop&w=120&h=120",
       institution: "Dr. Akhilesh Das Gupta Institute of Professional Studies",
       date: "January 2025",
