@@ -1,12 +1,11 @@
-
 import React, { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useAnimate } from 'framer-motion';
 import { X } from 'lucide-react';
 
 const ResearchSection = () => {
   const [selectedResearch, setSelectedResearch] = useState(null);
   const sliderRef = useRef(null);
-  const [scope, animate] = useRef(null);
+  const [scope, animate] = useAnimate();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -85,6 +84,19 @@ const ResearchSection = () => {
     },
     {
       id: 3,
+      title: "Real-Time Network Topology Optimization Using Dynamic Machine Learning Adaptation",
+      description: "This research presents a novel framework for dynamically optimizing network topologies using reinforcement learning in response to real-time traffic patterns and user demands, significantly improving network performance metrics.",
+      technologies: ["Reinforcement Learning", "Network Optimization", "Machine Learning", "IoT", "5G Networks"],
+      image: "https://images.unsplash.com/photo-1558494950-b8e691e567e9?fit=crop&w=800&h=500",
+      logo: "https://images.unsplash.com/photo-1590402494610-2c378a9114c6?fit=crop&w=120&h=120",
+      institution: "Dr. Akhilesh Das Gupta Institute of Professional Studies",
+      date: "January 2025",
+      doi: "https://doi.org/10.22214/ijraset.2025.66581",
+      journal: "International Journal for Research in Applied Science & Engineering Technology (IJRASET)",
+      fullDescription: "This pioneering research addresses the growing challenges of network topology management in dynamic environments such as IoT, 5G networks, and cyber-physical systems. The study introduces a novel framework called Dynamic Network Topology Optimization (DNTO) that leverages advanced reinforcement learning algorithms to autonomously optimize network configurations in real-time.\n\nKey contributions include:\n\n1. Development of a machine learning framework that dynamically adapts network topologies based on real-time traffic patterns and changing user demands, significantly reducing latency by 57% compared to static configurations.\n\n2. Implementation of reinforcement learning algorithms that enable networks to self-optimize without human intervention, resulting in 30% higher throughput and 25% reduced energy consumption.\n\n3. Creation of a scalable solution that continuously monitors network conditions and makes topology adjustments with response times 5 times faster than traditional methods.\n\n4. Comprehensive evaluation across simulated and real-world scenarios, demonstrating superior performance in IoT networks, smart city infrastructure, and cyber-physical systems.\n\nThe research provides a foundation for the next generation of autonomous network management systems that can adapt to evolving requirements while maintaining optimal performance, minimizing energy consumption, and enhancing overall network resilience."
+    },
+    {
+      id: 4,
       title: "Real-Time Network Topology Optimization Using Dynamic Machine Learning Adaptation",
       description: "This research presents a novel framework for dynamically optimizing network topologies using reinforcement learning in response to real-time traffic patterns and user demands, significantly improving network performance metrics.",
       technologies: ["Reinforcement Learning", "Network Optimization", "Machine Learning", "IoT", "5G Networks"],
