@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, Award } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -32,6 +32,14 @@ const Footer = () => {
               className="text-gray-400 hover:text-purple transition-colors"
             >
               <Linkedin className="w-5 h-5" />
+            </a>
+            <a 
+              href="https://www.hackerrank.com/profile/ritikabudhiraja1" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-purple transition-colors"
+            >
+              <Award className="w-5 h-5" />
             </a>
             <a 
               href="mailto:ritikabudhiraja28@gmail.com" 

@@ -1,11 +1,12 @@
+
 import React, { useState, useRef } from 'react';
-import { motion, useAnimate } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { X } from 'lucide-react';
 
 const ResearchSection = () => {
   const [selectedResearch, setSelectedResearch] = useState(null);
   const sliderRef = useRef(null);
-  const [scope, animate] = useAnimate();
+  const [scope, animate] = useRef(null);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -81,11 +82,26 @@ const ResearchSection = () => {
       logo: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?fit=crop&w=120&h=120",
       institution: "GGSIPU",
       fullDescription: "This comprehensive research investigates the capabilities and limitations of multilingual BERT (mBERT) in learning cross-lingual and multi-lingual representations across a diverse set of 104 languages with varying resource availability.\n\nThe study makes several key contributions:\n\n1. Analysis of mBERT's representational capacity across both high-resource languages (e.g., English, French, German) and low-resource languages (e.g., Swahili, Kurdish, Nepali).\n\n2. Evaluation of zero-shot and few-shot transfer learning capabilities across multiple NLP tasks including named entity recognition, part-of-speech tagging, sentiment analysis, and question answering.\n\n3. Identification of specific linguistic features and typological characteristics that influence cross-lingual transfer success between language pairs.\n\n4. Proposal of novel fine-tuning strategies that significantly improve performance for low-resource languages without compromising performance on high-resource languages.\n\nThe findings reveal that while mBERT shows remarkable cross-lingual transfer abilities, its performance is strongly influenced by linguistic distance, script similarity, and training data quantity. The research provides actionable insights for practitioners working on multilingual NLP applications and contributes to our theoretical understanding of how large language models acquire cross-lingual capabilities."
+    },
+    {
+      id: 3,
+      title: "Real-Time Network Topology Optimization Using Dynamic Machine Learning Adaptation",
+      description: "This research presents a novel framework for dynamically optimizing network topologies using reinforcement learning in response to real-time traffic patterns and user demands, significantly improving network performance metrics.",
+      technologies: ["Reinforcement Learning", "Network Optimization", "Machine Learning", "IoT", "5G Networks"],
+      image: "https://images.unsplash.com/photo-1558494950-b8e691e567e9?fit=crop&w=800&h=500",
+      logo: "https://images.unsplash.com/photo-1590402494610-2c378a9114c6?fit=crop&w=120&h=120",
+      institution: "Dr. Akhilesh Das Gupta Institute of Professional Studies",
+      date: "January 2025",
+      doi: "https://doi.org/10.22214/ijraset.2025.66581",
+      journal: "International Journal for Research in Applied Science & Engineering Technology (IJRASET)",
+      fullDescription: "This pioneering research addresses the growing challenges of network topology management in dynamic environments such as IoT, 5G networks, and cyber-physical systems. The study introduces a novel framework called Dynamic Network Topology Optimization (DNTO) that leverages advanced reinforcement learning algorithms to autonomously optimize network configurations in real-time.\n\nKey contributions include:\n\n1. Development of a machine learning framework that dynamically adapts network topologies based on real-time traffic patterns and changing user demands, significantly reducing latency by 57% compared to static configurations.\n\n2. Implementation of reinforcement learning algorithms that enable networks to self-optimize without human intervention, resulting in 30% higher throughput and 25% reduced energy consumption.\n\n3. Creation of a scalable solution that continuously monitors network conditions and makes topology adjustments with response times 5 times faster than traditional methods.\n\n4. Comprehensive evaluation across simulated and real-world scenarios, demonstrating superior performance in IoT networks, smart city infrastructure, and cyber-physical systems.\n\nThe research provides a foundation for the next generation of autonomous network management systems that can adapt to evolving requirements while maintaining optimal performance, minimizing energy consumption, and enhancing overall network resilience."
     }
   ];
 
   // Function to handle slider navigation
   const handleSlideChange = (direction) => {
+    if (!scope.current || !animate) return;
+    
     animate(scope.current, { x: direction > 0 ? '-100%' : '100%', opacity: 0 }, { duration: 0.3 })
       .then(() => {
         const currentIndex = researchProjects.findIndex(p => p.id === selectedResearch.id);
@@ -126,7 +142,7 @@ const ResearchSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-10"
+          className="grid grid-cols-1 md:grid-cols-3 gap-10"
         >
           {researchProjects.map((project) => (
             <motion.div 
@@ -293,6 +309,24 @@ const ResearchSection = () => {
             </motion.div>
             
             <div className="p-8 bg-space-dark/95 dark:bg-space-dark/95 light:bg-white/95">
+              {/* Meta information */}
+              {selectedResearch.doi && (
+                <div className="mb-4 flex flex-wrap gap-2 text-sm text-gray-400">
+                  {selectedResearch.date && <span>{selectedResearch.date}</span>}
+                  {selectedResearch.doi && (
+                    <a 
+                      href={selectedResearch.doi} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-purple-light hover:underline"
+                    >
+                      {selectedResearch.doi}
+                    </a>
+                  )}
+                  {selectedResearch.journal && <span>{selectedResearch.journal}</span>}
+                </div>
+              )}
+            
               {/* Technologies badges */}
               <div className="mb-6 flex flex-wrap gap-2">
                 {selectedResearch.technologies.map((tech, index) => (

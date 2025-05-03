@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Github, Linkedin, Mail, Download, Sun, Moon } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Mail, Download, Sun, Moon, Award } from 'lucide-react';
 import { Switch } from './ui/switch';
 
 const Navbar = () => {
@@ -79,6 +79,9 @@ const Navbar = () => {
             <a href="https://www.linkedin.com/in/ritika-budhiraja-/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110 mx-2">
               <Linkedin className="h-5 w-5" />
             </a>
+            <a href="https://www.hackerrank.com/profile/ritikabudhiraja1" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110 mx-2">
+              <Award className="h-5 w-5" />
+            </a>
             <a href="mailto:ritikabudhiraja28@gmail.com" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110 mx-2">
               <Mail className="h-5 w-5" />
             </a>
@@ -128,6 +131,9 @@ const Navbar = () => {
                 </a>
                 <a href="https://www.linkedin.com/in/ritika-budhiraja-/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple">
                   <Linkedin className="h-5 w-5" />
+                </a>
+                <a href="https://www.hackerrank.com/profile/ritikabudhiraja1" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple">
+                  <Award className="h-5 w-5" />
                 </a>
                 <a href="mailto:ritikabudhiraja28@gmail.com" className="text-white hover:text-purple">
                   <Mail className="h-5 w-5" />
