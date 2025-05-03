@@ -1,12 +1,11 @@
-
 import React, { useState, useRef } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimate } from 'framer-motion';
 import { X } from 'lucide-react';
 
 const ResearchSection = () => {
   const [selectedResearch, setSelectedResearch] = useState(null);
   const sliderRef = useRef(null);
-  const controls = useAnimation();
+  const [scope, animate] = useAnimate();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -87,7 +86,7 @@ const ResearchSection = () => {
 
   // Function to handle slider navigation
   const handleSlideChange = (direction) => {
-    controls.start("exit", { custom: direction })
+    animate(scope.current, { x: direction > 0 ? '-100%' : '100%', opacity: 0 }, { duration: 0.3 })
       .then(() => {
         const currentIndex = researchProjects.findIndex(p => p.id === selectedResearch.id);
         let nextIndex;
@@ -99,7 +98,7 @@ const ResearchSection = () => {
         }
         
         setSelectedResearch(researchProjects[nextIndex]);
-        controls.start("center");
+        animate(scope.current, { x: 0, opacity: 1 }, { duration: 0.3 });
       });
   };
 
@@ -222,10 +221,8 @@ const ResearchSection = () => {
             ref={sliderRef}
           >
             <motion.div 
-              variants={slideVariants}
-              initial="enter"
-              animate={controls}
-              custom={1}
+              ref={scope}
+              initial={{ x: 0, opacity: 1 }}
               className="relative"
             >
               <button 
