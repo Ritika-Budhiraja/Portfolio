@@ -1,21 +1,24 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-
 const HeroSection = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-
-    const particles: { x: number; y: number; radius: number; color: string; velocity: { x: number; y: number } }[] = [];
-
+    const particles: {
+      x: number;
+      y: number;
+      radius: number;
+      color: string;
+      velocity: {
+        x: number;
+        y: number;
+      };
+    }[] = [];
     function createParticles() {
       for (let i = 0; i < 100; i++) {
         const radius = Math.random() * 2 + 0.5;
@@ -26,15 +29,18 @@ const HeroSection = () => {
           x: (Math.random() - 0.5) * 0.5,
           y: (Math.random() - 0.5) * 0.5
         };
-
-        particles.push({ x, y, radius, color, velocity });
+        particles.push({
+          x,
+          y,
+          radius,
+          color,
+          velocity
+        });
       }
     }
-
     function animateParticles() {
       requestAnimationFrame(animateParticles);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
         ctx.beginPath();
@@ -54,7 +60,6 @@ const HeroSection = () => {
         for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j];
           const distance = Math.sqrt((p.x - p2.x) ** 2 + (p.y - p2.y) ** 2);
-          
           if (distance < 100) {
             ctx.beginPath();
             ctx.strokeStyle = `rgba(155, 135, 245, ${0.2 - distance / 500})`;
@@ -66,19 +71,15 @@ const HeroSection = () => {
         }
       }
     }
-
     function handleResize() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       particles.length = 0;
       createParticles();
     }
-
     createParticles();
     animateParticles();
-
     window.addEventListener('resize', handleResize);
-
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -86,7 +87,9 @@ const HeroSection = () => {
 
   // Variants for text animation
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: {
+      opacity: 0
+    },
     visible: {
       opacity: 1,
       transition: {
@@ -95,9 +98,11 @@ const HeroSection = () => {
       }
     }
   };
-
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: {
+      y: 20,
+      opacity: 0
+    },
     visible: {
       y: 0,
       opacity: 1,
@@ -107,32 +112,19 @@ const HeroSection = () => {
       }
     }
   };
-
-  return (
-    <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
-      <canvas ref={canvasRef} className="absolute inset-0 z-0"></canvas>
+  return <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
+      <canvas ref={canvasRef} className="absolute inset-0 z-0 "></canvas>
       
       <div className="z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="mb-8"
-        >
+        <motion.div variants={containerVariants} initial="hidden" animate="visible" className="mb-8">
           <div className="flex flex-wrap justify-center mb-6">
             {/* First name in purple */}
-            <motion.h1
-              variants={itemVariants}
-              className="text-5xl sm:text-7xl font-bold font-futuristic text-purple tracking-wider mr-4"
-            >
+            <motion.h1 variants={itemVariants} className="text-5xl sm:text-7xl font-bold font-futuristic text-purple tracking-wider mr-4">
               Ritika
             </motion.h1>
             
             {/* Last name in pink */}
-            <motion.h1
-              variants={itemVariants}
-              className="text-5xl sm:text-7xl font-bold font-futuristic text-pink-500 tracking-wider"
-            >
+            <motion.h1 variants={itemVariants} className="text-5xl sm:text-7xl font-bold font-futuristic text-pink-500 tracking-wider">
               Budhiraja
             </motion.h1>
           </div>
@@ -155,12 +147,16 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
         
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.8 }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 20
+      }} animate={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        delay: 1.5,
+        duration: 0.8
+      }} className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
           <div className="animate-bounce flex flex-col items-center">
             <span className="text-white text-sm mb-2">Scroll Down</span>
             <svg className="w-6 h-6 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -169,8 +165,6 @@ const HeroSection = () => {
           </div>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
