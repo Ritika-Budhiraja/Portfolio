@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Code, Database, Layers, FileText, BookOpen, GraduationCap, School } from 'lucide-react';
@@ -60,7 +59,7 @@ const AboutSection = () => {
       institution: "Indian Institute of Technology Madras",
       duration: "2023 - 2027",
       grade: "CGPA: 8.2/10",
-      logo: "https://images.unsplash.com/photo-1562774053-701939374585?fit=crop&w=120&h=120"
+      logo: "/lovable-uploads/fb5318e7-08f6-4288-ac86-5292cf2d2e50.png"
     },
     {
       degree: "Bachelor of Technology in Computer Science",
