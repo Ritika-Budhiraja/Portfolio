@@ -85,25 +85,37 @@ const HeroSection = () => {
     // Mouse movement effect variables
     let mouseX = 0;
     let mouseY = 0;
+    let targetX = 0;
+    let targetY = 0;
     
-    // Mouse movement effect handler
+    // Enhanced mouse movement effect handler with smoothing
     const handleMouseMove = (event) => {
+      // Calculate normalized mouse position (-1 to 1)
       mouseX = (event.clientX / window.innerWidth) * 2 - 1;
       mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
     };
     
     window.addEventListener('mousemove', handleMouseMove);
     
-    // Animation loop
+    // Animation loop with enhanced mouse responsiveness
     const animate = () => {
       requestAnimationFrame(animate);
       
+      // Basic rotation animation
       particlesMesh.rotation.x += 0.001;
       particlesMesh.rotation.y += 0.001;
       
-      // Apply mouse movement effect with smoother transition
-      particlesMesh.rotation.x += mouseY * 0.0003;
-      particlesMesh.rotation.y += mouseX * 0.0003;
+      // Smooth mouse following
+      // The animation gradually moves toward the mouse position rather than jumping
+      targetX = mouseX * 0.2;
+      targetY = mouseY * 0.2;
+      
+      particlesMesh.rotation.x += (targetY - particlesMesh.rotation.x) * 0.05;
+      particlesMesh.rotation.y += (targetX - particlesMesh.rotation.y) * 0.05;
+      
+      // Additional movement based on mouse position
+      particlesMesh.position.x += (mouseX * 0.5 - particlesMesh.position.x) * 0.02;
+      particlesMesh.position.y += (mouseY * 0.5 - particlesMesh.position.y) * 0.02;
       
       renderer.render(scene, camera);
     };
