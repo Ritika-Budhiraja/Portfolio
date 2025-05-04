@@ -40,6 +40,16 @@ const Navbar = () => {
     }
   };
 
+  const handleResumeDownload = () => {
+    // Create a link to download the resume
+    const link = document.createElement('a');
+    link.href = '/lovable-uploads/614e0e05-bdea-4b58-b200-91542f7e922a.png';
+    link.download = 'Ritika_Budhiraja_Resume.png';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-space-dark/80 backdrop-blur-md py-2' : 'bg-transparent py-4'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,10 +95,13 @@ const Navbar = () => {
             <a href="mailto:ritikabudhiraja28@gmail.com" className="text-white hover:text-purple transition-all duration-300 transform hover:scale-110 mx-2">
               <Mail className="h-5 w-5" />
             </a>
-            <a href="#resume" className="flex items-center gap-2 bg-purple hover:bg-purple-medium text-white px-4 py-2 rounded-lg transition-all hover:shadow-neon-purple">
+            <button 
+              onClick={handleResumeDownload} 
+              className="flex items-center gap-2 bg-purple hover:bg-purple-medium text-white px-4 py-2 rounded-lg transition-all hover:shadow-neon-purple"
+            >
               <Download className="h-4 w-4" />
               Resume
-            </a>
+            </button>
           </div>
           
           <div className="md:hidden">
@@ -142,10 +155,13 @@ const Navbar = () => {
             </div>
             
             <div className="px-3 py-2">
-              <a href="#resume" className="flex items-center gap-2 bg-purple hover:bg-purple-medium text-white px-4 py-2 rounded-lg transition-all w-full justify-center">
+              <button 
+                onClick={handleResumeDownload} 
+                className="flex items-center gap-2 bg-purple hover:bg-purple-medium text-white px-4 py-2 rounded-lg transition-all w-full justify-center"
+              >
                 <Download className="h-4 w-4" />
                 Resume
-              </a>
+              </button>
             </div>
           </div>
         </div>

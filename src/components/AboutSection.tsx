@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Code, Database, Layers, FileText, BookOpen, GraduationCap, School } from 'lucide-react';
@@ -21,6 +22,29 @@ const AboutSection = () => {
       opacity: 1,
       transition: {
         duration: 0.6
+      }
+    }
+  };
+
+  const skillItemVariants = {
+    hidden: { scale: 0.8, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10
+      }
+    },
+    hover: {
+      scale: 1.05,
+      color: "#9b87f5",
+      textShadow: "0 0 8px rgba(155, 135, 245, 0.8)",
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 10
       }
     }
   };
@@ -167,28 +191,107 @@ const AboutSection = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="glass-card p-8"
+            className="glass-card p-8 overflow-hidden relative"
           >
-            <motion.h3 variants={itemVariants} className="text-2xl font-semibold text-white mb-6">
+            {/* Animated background elements */}
+            <div className="absolute inset-0 overflow-hidden">
+              {[...Array(10)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute bg-purple/10 rounded-full"
+                  style={{
+                    width: Math.random() * 100 + 50,
+                    height: Math.random() * 100 + 50,
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                  }}
+                  animate={{
+                    x: [0, Math.random() * 40 - 20],
+                    y: [0, Math.random() * 40 - 20],
+                    scale: [1, 1.1, 1],
+                    opacity: [0.3, 0.6, 0.3],
+                  }}
+                  transition={{
+                    duration: Math.random() * 5 + 5,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                  }}
+                />
+              ))}
+            </div>
+
+            <motion.h3 
+              variants={itemVariants} 
+              className="text-2xl font-semibold text-white mb-6 relative z-10"
+              animate={{ 
+                textShadow: ["0px 0px 0px rgba(155, 135, 245, 0)", "0px 0px 10px rgba(155, 135, 245, 0.8)", "0px 0px 0px rgba(155, 135, 245, 0)"] 
+              }}
+              transition={{ 
+                duration: 2,
+                repeat: Infinity,
+                repeatType: "reverse"
+              }}
+            >
               Technical Skills
             </motion.h3>
             
-            <div className="space-y-6">
+            <div className="space-y-6 relative z-10">
               {skills.map((skill, index) => (
                 <motion.div 
                   key={index} 
                   variants={itemVariants}
                   className="border-b border-purple/30 pb-4 last:border-0"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.1 }}
+                  initial="hidden"
                 >
-                  <div className="flex items-center mb-3">
-                    {skill.icon}
+                  <motion.div 
+                    className="flex items-center mb-3"
+                    whileHover={{
+                      scale: 1.02,
+                      transition: { duration: 0.2 }
+                    }}
+                  >
+                    <motion.div
+                      animate={{
+                        rotateY: [0, 360],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "linear",
+                        delay: index * 0.5
+                      }}
+                    >
+                      {skill.icon}
+                    </motion.div>
                     <h4 className="text-xl font-medium text-white ml-2">{skill.category}</h4>
-                  </div>
+                  </motion.div>
                   <div className="flex flex-wrap gap-2">
                     {skill.items.map((item, i) => (
-                      <span key={i} className="bg-purple/20 text-purple-light px-3 py-1 rounded-full text-sm">
+                      <motion.span 
+                        key={i} 
+                        className="bg-purple/20 text-purple-light px-3 py-1 rounded-full text-sm"
+                        variants={skillItemVariants}
+                        whileHover="hover"
+                        whileInView="visible"
+                        initial="hidden"
+                        custom={i}
+                        viewport={{ once: true, amount: 0.1 }}
+                        animate={{
+                          boxShadow: ["0px 0px 0px rgba(155, 135, 245, 0)", "0px 0px 8px rgba(155, 135, 245, 0.8)", "0px 0px 0px rgba(155, 135, 245, 0)"]
+                        }}
+                        transition={{
+                          boxShadow: {
+                            duration: 2,
+                            repeat: Infinity,
+                            repeatType: "reverse",
+                            delay: i * 0.2
+                          }
+                        }}
+                      >
                         {item}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
                 </motion.div>
