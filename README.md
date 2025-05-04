@@ -1,73 +1,77 @@
-# Welcome to your Lovable project
+# 💫 Ritika Budhiraja — AI & Data Science Researcher
 
-## Project info
+🚀 Passionate about solving real-world problems using AI, ML, and Data Science.  
+🎓 Pursuing B.Sc. in Data Science at **IIT Madras** | CGPA: 8.2/10  
+🌍 Based in Delhi, India | 📬 ritikabudhiraja28@gmail.com | 📞 +91 8178714447
 
-**URL**: https://lovable.dev/projects/cc1e33e2-8dfe-4890-bb1a-8cea77415068
+---
 
-## How can I edit this code?
+## 👩‍💻 About Me
+Hi, I'm **Ritika**, a curious mind thriving at the intersection of technology, research, and creativity. I love building innovative solutions, collaborating in dynamic teams, and leading impactful initiatives. Currently diving deep into NLP, Deep Learning, and Data-Driven Research.
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🚀 Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/cc1e33e2-8dfe-4890-bb1a-8cea77415068) and start prompting.
+**Languages:** Python, C/C++, Java, SQL, JS, MATLAB  
+**Libraries/Tools:** TensorFlow, PyTorch, Scikit-learn, OpenCV, Pandas, NumPy  
+**Domains:** NLP, Transfer Learning, Image Processing, Time Series, Generative AI  
+**Frameworks:** Streamlit, FastAPI, LangChain, Haystack
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🧠 Featured Projects
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **🧾 Blog Generator Web App** — Built using LLama 2 & Streamlit  
+- **🤖 Fine-Tuned Chatbot** — Multi-model conversational AI  
+- **📈 BTC Price Prediction** — Forecasting using GARCH & SARIMAX  
+- **📷 Image Caption Generator** — CV + NLP with BLEU scoring  
+- **🌾 Crop Forecasting** — ML-powered agriculture analytics  
+- **🚨 EcoAlert (Gas Leak Detection)** — IoT & Python-based safety system  
+> _Explore more on [My Portfolio](#)_
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 📚 Research Work
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- **Sentiment Analysis using BERT** – IIT Madras  
+- **Cross-Lingual NLP with mBERT** – GGSIPU  
+- **Network Optimization using ML** – ADGITM
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🏆 Achievements
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+- 🥈 2nd Place @ PixelMind-AI (IIT Madras)  
+- 🥈 2nd Place @ Byte Bazaar (NSUT)  
+- ✅ Qualified @ Smart India Hackathon 2024  
+- 🎖 Honourable Mention @ CodeKshetra Hackathon
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📌 Work Experience
 
-**Use GitHub Codespaces**
+- **Back End Developer** — DSEU University (Python, FastAPI)  
+- **Research Consultant** — WorldQuant Brain  
+- **Data Science Intern** — ISI Kolkata & IISER Bhopal
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## 📃 Certifications
 
-This project is built with:
+- Python Programming — Scaler  
+- SQL Intermediate — HackerRank  
+- Certified Node.js Developer — Scaler  
+- Azure Fundamentals — Microsoft
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+## 📫 Let's Connect
 
-Simply open [Lovable](https://lovable.dev/projects/cc1e33e2-8dfe-4890-bb1a-8cea77415068) and click on Share -> Publish.
+🔗 [LinkedIn](https://linkedin.com/in/ritikabudhiraja)  
+🌐 [Portfolio Website](#)  
+📧 ritikabudhiraja28@gmail.com
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+> ✨ “Data is the new oil, but intelligence is the spark.” — Let's innovate together!
