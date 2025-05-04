@@ -67,21 +67,21 @@ const AboutSection = () => {
       institution: "Guru Gobind Singh Indraprastha University",
       duration: "2022 - 2026",
       grade: "CGPA: 9.2/10 (Until 5th Semester)",
-      logo: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?fit=crop&w=120&h=120"
+      logo: "/lovable-uploads/e7a99813-cf63-40e9-8f61-2a8048bb944a.png"
     },
     {
       degree: "Senior Secondary (12th Grade)",
       institution: "Arwachin Bharti Bhawan Sr Sec School",
       duration: "2021 - 2022",
       grade: "Percentage: 90%",
-      logo: "https://images.unsplash.com/photo-1494949649109-ecfc3b8c35df?fit=crop&w=120&h=120"
+      logo: "/lovable-uploads/423c2470-de0c-40e5-a7be-9ab68b7d3c3d.png"
     },
     {
       degree: "Secondary (10th Grade)",
       institution: "Arwachin Bharti Bhawan Sr Sec School",
       duration: "2019 - 2020",
       grade: "Percentage: 93%",
-      logo: "https://images.unsplash.com/photo-1494949649109-ecfc3b8c35df?fit=crop&w=120&h=120"
+      logo: "/lovable-uploads/423c2470-de0c-40e5-a7be-9ab68b7d3c3d.png"
     }
   ]
 
